@@ -1,0 +1,60 @@
+@import "../color";
+@import "../typography";
+
+$Agenda-spacing-small: 10px;
+$Agenda-spacing-base: 32px;
+
+.Agenda {
+  background-color: $Color-milk-chocolate;
+}
+
+.Agenda-content {
+  padding: $Agenda-spacing-base $Agenda-spacing-base $Agenda-spacing-small
+}
+
+.Agenda-title {
+  margin-bottom: $Agenda-spacing-base;
+
+  color: $Color-white;
+  font-size: 36px;
+  font-family: $Typography-font-family-serif;
+}
+
+.Agenda-event {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: $Agenda-spacing-base;
+}
+
+.Agenda-eventDate {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.Agenda-eventDescription {
+  font-size: 10px;
+}
+
+.Agenda-eventLocation {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.Agenda-eventAction {
+  display: inline-block;
+
+  padding: 5px 8px;
+  font-size: 4px;
+  line-height: 0px;
+  border: 1px solid $Color-white;
+}
+
+.Agenda-eventDate,
+.Agenda-eventDescription,
+.Agenda-eventLocation,
+.Agenda-eventAction {
+  font-family: $Typography-font-family-sans;
+  color: $Color-white;
+}

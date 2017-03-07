@@ -1,3 +1,53 @@
+@import "../color";
+@import "../typography";
+
+$Hero-spacing-small: 12px;
+$Hero-spacing-base: 32px;
+$Hero-spacing-xLarge: 150px;
+
 .Hero {
-  
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: url('./hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Hero-content {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: $Hero-spacing-xLarge $Hero-spacing-base $Hero-spacing-base;
+}
+
+.Hero-title {
+  color: $Color-white;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: $Typography-font-family-serif;
+}
+
+.Hero-subtitle {
+  margin-left: $Hero-spacing-small;
+  margin-bottom: $Hero-spacing-xLarge;
+
+  color: $Color-white;
+  font-size: 12px;
+  font-family: $Typography-font-family-serif;
+}
+
+.Hero-uvp {
+  color: $Color-white;
+  font-family: $Typography-font-family-serif;
+
+  font-size: 9px;
+  text-align: center;
 }

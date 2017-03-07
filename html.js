@@ -5,7 +5,7 @@ import { prefixLink } from 'gatsby-helpers';
 
 const BUILD_TIME = new Date().getTime();
 
-const HTML = body => {
+const HTML = ({ body }) => {
   const head = Helmet.rewind();
 
   let css;

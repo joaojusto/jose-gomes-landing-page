@@ -1,60 +1,109 @@
 @import "../color";
 @import "../typography";
 
-$Agenda-spacing-small: 10px;
-$Agenda-spacing-base: 32px;
+$Agenda-spacing-xsmall: 20px;
+$Agenda-spacing-small: 30px;
+$Agenda-spacing-base: 40px;
+$Agenda-spacing-large: 60px;
+$Agenda-box-shadow: 0 13.5px 14.5px 0 rgba(1, 0, 2, 0.35);
+$Agenda-gradient: linear-gradient(162deg, $Color-dark-peach, #a13434);
 
 .Agenda {
-  background-color: #00167c
+  background-image: url('./background.jpg');
+  padding: $Agenda-spacing-base $Agenda-spacing-large $Agenda-spacing-large;
 }
 
 .Agenda-content {
-  padding: $Agenda-spacing-base $Agenda-spacing-base $Agenda-spacing-small
+  position: relative;
+
+  max-width: 50%;
+
+  margin: 0 auto;
+  padding: $Agenda-spacing-xsmall $Agenda-spacing-small;
+
+  background-image: $Agenda-gradient;
+
+  box-shadow: $Agenda-box-shadow;
 }
 
 .Agenda-title {
-  margin-bottom: $Agenda-spacing-base;
+  margin-bottom: $Agenda-spacing-large;
 
-  color: $Color-white;
-  font-size: 36px;
-  font-family: $Typography-font-family-serif;
+  color: $Color-dark-peach;
+  font-family: $Typography-font-family-sans;
+  font-size: 30px;
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
 }
 
 .Agenda-event {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
 
-  margin-bottom: $Agenda-spacing-base;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  z-index: 2;
 }
 
 .Agenda-eventDate {
+  margin-bottom: $Agenda-spacing-small;
+
+  color: $Color-white;
+
   font-size: 15px;
-  font-weight: bold;
-  text-align: right;
+  font-family: $Typography-font-family-sans;
+  text-align: center;
+}
+
+.Agenda-eventTitle {
+  margin-bottom: $Agenda-spacing-small;
+
+  color: $Color-white;
+
+  font-family: $Typography-font-family-sans;
+  font-size: 17.5px;
+  letter-spacing: 0.4px;
+  text-align: center;
 }
 
 .Agenda-eventDescription {
-  font-size: 10px;
+  margin-bottom: $Agenda-spacing-base;
+
+  color: $Color-white;
+
+  font-family: $Typography-font-family-serif;
+  font-size: 10.5px;
+	letter-spacing: 0.3px;
+	text-align: center;
 }
 
 .Agenda-eventLocation {
   font-size: 10px;
   font-weight: bold;
-}
-
-.Agenda-eventAction {
-  display: inline-block;
-
-  padding: 5px 8px;
-  font-size: 4px;
-  line-height: 0px;
-  border: 1px solid $Color-white;
+  text-align: center;
 }
 
 .Agenda-eventDate,
 .Agenda-eventDescription,
-.Agenda-eventLocation,
-.Agenda-eventAction {
+.Agenda-eventLocation {
   font-family: $Typography-font-family-sans;
   color: $Color-white;
+}
+
+.Agenda-action {
+  width: calc(50% - #{$Agenda-spacing-base * 2});
+
+  margin: 0 auto;
+  padding: $Agenda-spacing-xsmall 0;
+
+  background-color: #f4f4f4;
+
+  text-align: center;
+  font-family: $Typography-font-family-sans;
+  font-size: 9px;
+  color: #643243;
+
+  cursor: pointer;
 }

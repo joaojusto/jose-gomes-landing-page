@@ -4,36 +4,22 @@ import './index.scss';
 
 const Agenda = () => (
   <section className="Agenda">
+    <h1 className="Agenda-title">Agenda</h1>
     <div className="Agenda-content">
-      <h1 className="Agenda-title">Agenda</h1>
       <div className="Agenda-event">
-        <div className="Agenda-eventDate">25<br/>Abril</div>
+        <div className="Agenda-eventDate">25 Abril</div>
+        <div className="Agenda-eventTitle">
+          Concerto Comemoração 25 Abril
+        </div>
         <div className="Agenda-eventDescription">
-          Concerto “25 de Abril Sempre!”, com a Orquestra Sinfónica da Casa da Música
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tempor incididunt ut labore et dolore magna Ut enim ad me.
         </div>
         <div className="Agenda-eventLocation">
-          Casa da Música,<br/>
-          Porto
-        </div>
-        <div>
-          <span className="Agenda-eventAction">saber mais</span>
-        </div>
-      </div>
-
-      <div className="Agenda-event">
-        <div className="Agenda-eventDate">25<br/>Abril</div>
-        <div className="Agenda-eventDescription">
-          Concerto “25 de Abril Sempre!”, com a Orquestra Sinfónica da Casa da Música
-        </div>
-        <div className="Agenda-eventLocation">
-          Casa da Música,<br/>
-          Porto
-        </div>
-        <div>
-          <span className="Agenda-eventAction">saber mais</span>
+          Ponte 25 de abril, Lisboa
         </div>
       </div>
     </div>
+    <div className="Agenda-action">Ver por mês</div>
   </section>
 );
 

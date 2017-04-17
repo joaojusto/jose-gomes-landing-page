@@ -4,6 +4,10 @@
 $Hero-spacing-small: 12px;
 $Hero-spacing-base: 32px;
 $Hero-spacing-xLarge: 150px;
+$Hero-font-title-size: 36px;
+$Hero-font-subtitle-size: 18px;
+$Hero-font-uvp-size: 24px;
+$Hero-gradient: linear-gradient(296deg, rgba($Color-brownish, 0.67), rgba(#081145, 0.67));
 
 .Hero {
   position: relative;
@@ -16,12 +20,10 @@ $Hero-spacing-xLarge: 150px;
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
-  background-image: linear-gradient(296deg, rgba(#945252, 0.67), rgba(#081145, 0.67)),
-                    url('./hero-desktop.jpg');
+  background-image: $Hero-gradient, url('./hero-desktop.jpg');
 
   @media (max-width: 650px) {
-    background-image: linear-gradient(296deg, rgba(#945252, 0.67), rgba(#081145, 0.67)),
-                      url('./hero.jpg');
+    background-image: $Hero-gradient, url('./hero.jpg');
   }
 }
 
@@ -35,8 +37,7 @@ $Hero-spacing-xLarge: 150px;
 
 .Hero-title {
   color: $Color-brownish;
-  letter-spacing: 0.9px;
-  font-size: 37px;
+  font-size: $Hero-font-title-size;
   font-family: $Typography-font-family-sans;
   text-transform: uppercase;
 }
@@ -44,8 +45,7 @@ $Hero-spacing-xLarge: 150px;
 .Hero-subtitle {
   color: $Color-brownish;
   font-family: $Typography-font-family-sans;
-	font-size: 18px;
-	letter-spacing: 0.4px;
+  font-size: $Hero-font-subtitle-size;
   text-transform: uppercase;
 }
 

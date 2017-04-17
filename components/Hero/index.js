@@ -1,8 +1,6 @@
 import React from 'react';
 
 import './index.scss';
-import HeroMobile from './hero.jpg';
-import HeroDesktopImage from './hero-desktop.jpg';
 
 const Hero = () => (
   <section className="Hero">

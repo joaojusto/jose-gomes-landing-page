@@ -1,0 +1,44 @@
+@import "../color";
+@import "../typography";
+
+$Navbar-link-font-size: 24px;
+$Navbar-link-spacing-base: 56px;
+$Navbar-button-padding-small: 5px;
+$Navbar-button-padding-base: 10px;
+
+.Navbar {
+  padding: $Navbar-link-spacing-base;
+}
+
+.Navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Navbar-link,
+.Navbar-button {
+  display: inline-block;
+
+  color: $Color-white;
+  font-size: $Navbar-link-font-size;
+  font-family: $Typography-font-family-sans;
+
+  &:not(:last-child) {
+    margin-right: $Navbar-link-spacing-base;
+  }
+}
+
+.Navbar-button {
+  padding: $Navbar-button-padding-small $Navbar-button-padding-base;
+
+  border: 2px solid $Color-white;
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $Color-white;
+
+    color: $Color-black;
+  }
+}

@@ -11,39 +11,26 @@ $Hero-spacing-xLarge: 150px;
   width: 100%;
   height: 100%;
 
+  padding-top: $Hero-spacing-xLarge;
+
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  background-image: linear-gradient(296deg, rgba(#945252, 0.67), rgba(#081145, 0.67)),
+                    url('./hero-desktop.jpg');
+
   @media (max-width: 650px) {
-    .Hero-desktopImage {
-      display: none;
-    }
-
-    .Hero-mobileImage{
-      display: block;
-    }
+    background-image: linear-gradient(296deg, rgba(#945252, 0.67), rgba(#081145, 0.67)),
+                      url('./hero.jpg');
   }
-}
-.Hero-mobileImage,
-.Hero-desktopImage {
-  max-width: 100%;
-}
-
-.Hero-mobileImage {
-  display: none;
 }
 
 .Hero-content {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  padding: $Hero-spacing-base $Hero-spacing-base $Hero-spacing-base;
+  padding: $Hero-spacing-xLarge $Hero-spacing-base * 2;
 }
 
 .Hero-title {
@@ -63,6 +50,8 @@ $Hero-spacing-xLarge: 150px;
 }
 
 .Hero-uvp {
+  padding-bottom: $Hero-spacing-xLarge / 2;
+
   color: $Color-white;
   font-family: $Typography-font-family-serif;
 

@@ -24,7 +24,7 @@ const HTML = ({ body }) => {
         {head.title.toComponent()}
         {head.meta.toComponent()}
         {css}
-        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Open+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Hammersmith+One" rel="stylesheet" />
       </head>
       <body>
         <div id="react-mount" dangerouslySetInnerHTML={{ __html: body }} />

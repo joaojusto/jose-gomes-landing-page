@@ -34,19 +34,19 @@ $Hero-spacing-xLarge: 150px;
 }
 
 .Hero-title {
-  color: $Color-white;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: $Typography-font-family-serif;
+  color: $Color-brownish;
+  letter-spacing: 0.9px;
+  font-size: 37px;
+  font-family: $Typography-font-family-sans;
+  text-transform: uppercase;
 }
 
 .Hero-subtitle {
-  margin-left: $Hero-spacing-small;
-  margin-bottom: 0;
-
-  color: $Color-white;
-  font-size: 12px;
-  font-family: $Typography-font-family-serif;
+  color: $Color-brownish;
+  font-family: $Typography-font-family-sans;
+	font-size: 18px;
+	letter-spacing: 0.4px;
+  text-transform: uppercase;
 }
 
 .Hero-uvp {
@@ -55,6 +55,6 @@ $Hero-spacing-xLarge: 150px;
   color: $Color-white;
   font-family: $Typography-font-family-serif;
 
-  font-size: 9px;
+  font-size: 15px;
   text-align: center;
 }

@@ -1,0 +1,47 @@
+@import '../color';
+@import '../typography';
+
+.Footer {
+  display: flex;
+
+  padding: 120px 70px 30px;
+
+  background-image: url('./background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Footer-column {
+  flex: 1;
+}
+
+.Footer-largeColumn {
+  flex: 3;
+
+  color: $Color-white;
+  font-family: $Typography-font-family-serif;
+  font-size: 18px;
+  line-height: 2;
+  text-align: center;
+}
+
+.Footer-title {
+  color: $Color-white;
+  font-family: $Typography-font-family-sans;
+  font-size: 30px;
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+}
+
+.Footer-socialLinks {
+  margin: 40px 0;
+}
+
+.Footer-socialLink {
+  margin: 0 10px;
+}
+
+.Footer-copywrite {
+  font-size: 12px;
+}

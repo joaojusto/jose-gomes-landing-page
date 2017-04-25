@@ -9,19 +9,22 @@ $Agenda-box-shadow: 0 13.5px 14.5px 0 rgba(1, 0, 2, 0.35);
 $Agenda-gradient: linear-gradient(162deg, $Color-dark-peach, #a13434);
 
 .Agenda {
+  padding: 100px $Agenda-spacing-large $Agenda-spacing-large;
+
   background-image: url('./background.jpg');
-  padding: $Agenda-spacing-base $Agenda-spacing-large $Agenda-spacing-large;
 }
 
 .Agenda-content {
   position: relative;
 
-  max-width: 50%;
+  max-width: 720px;
 
   margin: 0 auto;
-  padding: $Agenda-spacing-xsmall $Agenda-spacing-small;
+  padding: 50px 60px;
 
   background-image: $Agenda-gradient;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   box-shadow: $Agenda-box-shadow;
 }
@@ -48,52 +51,46 @@ $Agenda-gradient: linear-gradient(162deg, $Color-dark-peach, #a13434);
 }
 
 .Agenda-eventDate {
-  margin-bottom: $Agenda-spacing-small;
+  margin-bottom: 60px;
 
   color: $Color-white;
 
-  font-size: 15px;
+  font-size: 18px;
   font-family: $Typography-font-family-sans;
   text-align: center;
 }
 
 .Agenda-eventTitle {
-  margin-bottom: $Agenda-spacing-small;
+  margin-bottom: 50px;
 
   color: $Color-white;
 
   font-family: $Typography-font-family-sans;
-  font-size: 17.5px;
-  letter-spacing: 0.4px;
+  font-size: 22px;
   text-align: center;
 }
 
 .Agenda-eventDescription {
-  margin-bottom: $Agenda-spacing-base;
+  margin-bottom: 120px;
 
   color: $Color-white;
 
   font-family: $Typography-font-family-serif;
-  font-size: 10.5px;
-	letter-spacing: 0.3px;
+  font-size: 15px;
 	text-align: center;
+  line-height: 2.0;
 }
 
-.Agenda-eventLocation {
-  font-size: 10px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.Agenda-eventDate,
-.Agenda-eventDescription,
 .Agenda-eventLocation {
   font-family: $Typography-font-family-sans;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
   color: $Color-white;
 }
 
 .Agenda-action {
-  width: calc(50% - #{$Agenda-spacing-base * 2});
+  width: 720px - ($Agenda-spacing-base * 2);
 
   margin: 0 auto;
   padding: $Agenda-spacing-xsmall 0;
@@ -102,7 +99,7 @@ $Agenda-gradient: linear-gradient(162deg, $Color-dark-peach, #a13434);
 
   text-align: center;
   font-family: $Typography-font-family-sans;
-  font-size: 9px;
+  font-size: 18px;
   color: #643243;
 
   cursor: pointer;

@@ -32,6 +32,7 @@ const News = () => (
           </div>
         ))}
       </div>
+      <div className="News-navigation" />
     </div>
   </section>
 );

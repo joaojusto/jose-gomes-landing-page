@@ -32,6 +32,7 @@ $Hero-gradient: linear-gradient(296deg, rgba($Color-brownish, 0.67), rgba(#08114
   flex-direction: column;
   justify-content: space-between;
 
+  margin-top: 200px;
   padding: $Hero-spacing-xLarge $Hero-spacing-base * 2;
 }
 
@@ -50,11 +51,11 @@ $Hero-gradient: linear-gradient(296deg, rgba($Color-brownish, 0.67), rgba(#08114
 }
 
 .Hero-uvp {
-  padding-bottom: $Hero-spacing-xLarge / 2;
+  margin-bottom: 160px;
 
   color: $Color-white;
   font-family: $Typography-font-family-serif;
 
-  font-size: 15px;
+  font-size: 22px;
   text-align: center;
 }

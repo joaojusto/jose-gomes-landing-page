@@ -7,12 +7,16 @@ $News-spacing-base: 40px;
 $News-spacing-large: 60px;
 
 .News {
-  background-image: url('./news.jpg');
+  padding: 100px $News-spacing-large $News-spacing-large;
 
-  padding: $News-spacing-base $News-spacing-large $News-spacing-large;
+  background-image: url('./news.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .News-title {
+  margin-bottom: $News-spacing-large;
+
   color: $Color-dark-peach;
   font-family: $Typography-font-family-sans;
   font-size: 30px;
@@ -37,4 +41,8 @@ $News-spacing-large: 60px;
   &:last-child {
     align-self: flex-end;
   }
+}
+
+.News-navigation {
+  margin-top: 200px;
 }

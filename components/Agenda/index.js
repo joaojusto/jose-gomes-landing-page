@@ -12,7 +12,12 @@ const Agenda = () => (
           Concerto Comemoração 25 Abril
         </div>
         <div className="Agenda-eventDescription">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tempor incididunt ut labore et dolore magna Ut enim ad me.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tempor
+          incididunt ut labore et dolore magna Ut enim ad me ed do eiusmod tempor incididunt
+          ut labore et dolore magna Ut enim ad me. ed do eiusmod tempor incididunt ut labore et
+          dolore magna Ut enim ad me. ed do eiusmod tempor incididunt ut labore et dolore magna Ut
+          enim ad me.
         </div>
         <div className="Agenda-eventLocation">
           Ponte 25 de abril, Lisboa

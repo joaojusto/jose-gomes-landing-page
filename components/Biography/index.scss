@@ -1,0 +1,74 @@
+@import '../color';
+@import '../typography';
+
+$Biography-gradient: linear-gradient(71deg, rgba(3,0,27, 0.36), rgba(233,172,7, 0.36));
+
+.Biography {
+  display: flex;
+}
+
+.Biography-smallSection {
+  flex: 2;
+
+  padding: 100px 60px 80px;
+
+  background-image: url('./background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Biography-title {
+  color: $Color-white;
+  font-family: $Typography-font-family-sans;
+  font-size: 30px;
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+}
+
+.Biography-largeSection {
+  flex: 3;
+
+  padding: 100px 80px 80px;
+
+  background-color: $Color-leather;
+}
+
+.Biography-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid $Color-white;
+
+  font-family: $Typography-font-family-sans;
+  font-size: 18px;
+  line-height: 2.0;
+  color: $Color-white;
+}
+
+.Biography-downloadButton {
+  flex: 1;
+
+  border-right: 1px solid $Color-white;
+
+  text-align: center;
+}
+
+.Biography-fullButton {
+  flex: 1;
+
+  border-left: 1px solid $Color-white;
+
+  text-align: center;
+}
+
+.Biography-content {
+  margin-top: 60px;
+
+  font-family: $Typography-font-family-serif;
+  font-size: 15px;
+  line-height: 2.4;
+  letter-spacing: 0.2px;
+  color: $Color-white;
+}

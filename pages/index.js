@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import Agenda from '../components/Agenda';
 import News from '../components/News';
 import Biography from '../components/Biography';
+import Galery from '../components/Galery';
 
 const Index = () => (
   <div className="Index">
@@ -11,6 +12,7 @@ const Index = () => (
     <Agenda />
     <News />
     <Biography />
+    <Galery />
   </div>
 );
 

@@ -26,8 +26,8 @@ const News = () => (
     <h2 className="News-title">noticias</h2>
     <div className="News-content">
       <div className="News-list">
-        {news.map(data => (
-          <div className="News-listItem">
+        {news.map((data, index) => (
+          <div key={index} className="News-listItem">
             <NewsLink {...data} />
           </div>
         ))}

@@ -1,5 +1,6 @@
 @import "../color";
 @import "../typography";
+@import "../breakpoint";
 
 $Navbar-link-font-size: 18px;
 $Navbar-link-spacing-base: 56px;
@@ -8,12 +9,22 @@ $Navbar-button-padding-base: 10px;
 
 .Navbar {
   padding: $Navbar-link-spacing-base;
+
+  background-color:rgba(3,0,84, 0.10);
+
+  @include Breakpoint-mobileOnly {
+    padding: 5px;
+  }
 }
 
 .Navbar-content {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  }
 }
 
 .Navbar-link,
@@ -40,5 +51,14 @@ $Navbar-button-padding-base: 10px;
     background-color: $Color-white;
 
     color: $Color-black;
+  }
+}
+
+.Navbar-mobileButton {
+  display: none;
+
+  @include Breakpoint-mobileOnly {
+    display: flex;
+    justify-content: flex-end;
   }
 }

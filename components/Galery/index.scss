@@ -5,6 +5,7 @@ $Galery-thumbnail-size: 120px;
 
 .Galery {
   display: flex;
+  flex-wrap: wrap;
 
   background-color: $Color-white;
 }

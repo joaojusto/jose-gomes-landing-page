@@ -5,6 +5,9 @@ $Biography-gradient: linear-gradient(71deg, rgba(3,0,27, 0.36), rgba(233,172,7, 
 
 .Biography {
   display: flex;
+  flex-wrap: wrap;
+
+  max-width: 100%;
 }
 
 .Biography-smallSection {
@@ -28,6 +31,8 @@ $Biography-gradient: linear-gradient(71deg, rgba(3,0,27, 0.36), rgba(233,172,7, 
 
 .Biography-largeSection {
   flex: 3;
+
+  max-width: 100%;
 
   padding: 100px 80px 80px;
 

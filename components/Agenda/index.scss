@@ -92,6 +92,8 @@ $Agenda-gradient: linear-gradient(162deg, $Color-dark-peach, #a13434);
 .Agenda-action {
   width: 720px - ($Agenda-spacing-base * 2);
 
+  max-width: 100%;
+
   margin: 0 auto;
   padding: $Agenda-spacing-xsmall 0;
 

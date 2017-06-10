@@ -1,61 +1,80 @@
 @import "../color";
 @import "../typography";
+@import "../breakpoint";
 
-$Hero-spacing-small: 12px;
-$Hero-spacing-base: 32px;
-$Hero-spacing-xLarge: 150px;
 $Hero-font-title-size: 36px;
+$Hero-font-title-size-mobile: 32px;
 $Hero-font-subtitle-size: 18px;
-$Hero-font-uvp-size: 24px;
-$Hero-gradient: linear-gradient(296deg, rgba($Color-brownish, 0.67), rgba(#081145, 0.67));
+$Hero-font-subtitle-size-mobile: 16px;
 
 .Hero {
   position: relative;
 
   width: 100%;
   height: 100%;
+}
 
-  padding-top: $Hero-spacing-xLarge;
+.Hero-mobileBackground {
+  display: block;
 
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: cover;
-  background-image: $Hero-gradient, url('./hero-desktop.jpg');
+  width: 100%;
 
-  @media (max-width: 650px) {
-    background-image: $Hero-gradient, url('./hero.jpg');
+  @include Breakpoint-desktopOnly {
+    display: none;
+  }
+}
+
+.Hero-desktopBackground {
+  display: block;
+
+  width: 100%;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
   }
 }
 
 .Hero-content {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding-left: 100px;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 
-  margin-top: 200px;
-  padding: $Hero-spacing-xLarge $Hero-spacing-base * 2;
+  @include Breakpoint-mobileOnly {
+    padding-left: 20px;
+  }
 }
 
 .Hero-title {
-  color: $Color-brownish;
+  color: $Color-white;
   font-size: $Hero-font-title-size;
   font-family: $Typography-font-family-sans;
   text-transform: uppercase;
+
+  @include Breakpoint-mobileOnly {
+    font-size: $Hero-font-title-size-mobile;
+    word-spacing: 9999rem;
+  }
 }
 
 .Hero-subtitle {
-  color: $Color-brownish;
+  color: $Color-white;
   font-family: $Typography-font-family-sans;
   font-size: $Hero-font-subtitle-size;
   text-transform: uppercase;
-}
 
-.Hero-uvp {
-  margin-bottom: 160px;
+  margin-bottom: 20px;
 
-  color: $Color-white;
-  font-family: $Typography-font-family-serif;
-
-  font-size: 22px;
-  text-align: center;
+  @include Breakpoint-mobileOnly {
+    font-size: $Hero-font-subtitle-size-mobile;
+  }
 }

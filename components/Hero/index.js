@@ -2,14 +2,19 @@ import React from 'react';
 
 import './index.scss';
 
-const Hero = () => (
+import HeroMobileImage from './hero-mobile.jpg';
+import HeroDesktopImage from './hero-desktop.jpg';
+
+const Hero = () =>
   <section className="Hero">
-    <div className="Hero-content">
-      <h1 className="Hero-title">José Eduardo Gomes</h1>
-      <h2 className="Hero-subtitle">Maestro</h2>
+    <div className="Hero-backgroundWrapper">
+      <img className="Hero-mobileBackground" src={HeroMobileImage} />
+      <img className="Hero-desktopBackground" src={HeroDesktopImage} />
     </div>
-    <h3 className="Hero-uvp">“Música é partilha"</h3>
-  </section>
-);
+    <div className="Hero-content">
+      <h2 className="Hero-subtitle">Maestro</h2>
+      <h1 className="Hero-title">José Eduardo Gomes</h1>
+    </div>
+  </section>;
 
 export default Hero;

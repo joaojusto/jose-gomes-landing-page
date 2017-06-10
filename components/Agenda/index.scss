@@ -1,108 +1,39 @@
 @import "../color";
 @import "../typography";
-
-$Agenda-spacing-xsmall: 20px;
-$Agenda-spacing-small: 30px;
-$Agenda-spacing-base: 40px;
-$Agenda-spacing-large: 60px;
-$Agenda-box-shadow: 0 13.5px 14.5px 0 rgba(1, 0, 2, 0.35);
-$Agenda-gradient: linear-gradient(162deg, $Color-dark-peach, #a13434);
+@import "../breakpoint";
 
 .Agenda {
-  padding: 100px $Agenda-spacing-large $Agenda-spacing-large;
+  position: relative;
 
-  background-image: url('./background.jpg');
+  padding: 250px 100px;
+
+  @include Breakpoint-mobileOnly {
+    padding: 60px 0;
+  };
 }
 
 .Agenda-content {
-  position: relative;
+  display: flex;
+  justify-content: center;
 
-  max-width: 720px;
-
-  margin: 0 auto;
-  padding: 50px 60px;
-
-  background-image: $Agenda-gradient;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  box-shadow: $Agenda-box-shadow;
+  text-align: center;
 }
 
 .Agenda-title {
-  margin-bottom: $Agenda-spacing-large;
+  position: absolute;
 
-  color: $Color-dark-peach;
+  top: 75px;
+  left: 100px;
+
+  color: $Color-black;
+  font-size: 38px;
   font-family: $Typography-font-family-sans;
-  font-size: 30px;
-  letter-spacing: 0.8px;
-
   text-transform: uppercase;
-}
 
-.Agenda-event {
-  position: relative;
+  @include Breakpoint-mobileOnly {
+    top: 20px;
+    left: 20px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  z-index: 2;
-}
-
-.Agenda-eventDate {
-  margin-bottom: 60px;
-
-  color: $Color-white;
-
-  font-size: 18px;
-  font-family: $Typography-font-family-sans;
-  text-align: center;
-}
-
-.Agenda-eventTitle {
-  margin-bottom: 50px;
-
-  color: $Color-white;
-
-  font-family: $Typography-font-family-sans;
-  font-size: 22px;
-  text-align: center;
-}
-
-.Agenda-eventDescription {
-  margin-bottom: 120px;
-
-  color: $Color-white;
-
-  font-family: $Typography-font-family-serif;
-  font-size: 15px;
-	text-align: center;
-  line-height: 2.0;
-}
-
-.Agenda-eventLocation {
-  font-family: $Typography-font-family-sans;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  color: $Color-white;
-}
-
-.Agenda-action {
-  width: 720px - ($Agenda-spacing-base * 2);
-
-  max-width: 100%;
-
-  margin: 0 auto;
-  padding: $Agenda-spacing-xsmall 0;
-
-  background-color: #f4f4f4;
-
-  text-align: center;
-  font-family: $Typography-font-family-sans;
-  font-size: 18px;
-  color: #643243;
-
-  cursor: pointer;
+    font-size: 22px;
+  };
 }

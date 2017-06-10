@@ -13,7 +13,7 @@ $Navbar-button-padding-base: 10px;
   background-color:rgba(3,0,84, 0.10);
 
   @include Breakpoint-mobileOnly {
-    padding: 5px;
+    padding: 20px;
   }
 }
 

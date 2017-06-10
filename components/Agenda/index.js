@@ -1,31 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './index.scss';
 
-const Agenda = () => (
-  <section className="Agenda">
-    <h1 className="Agenda-title">Agenda</h1>
-    <div className="Agenda-content">
-      <div className="Agenda-event">
-        <div className="Agenda-eventDate">25 Abril</div>
-        <div className="Agenda-eventTitle">
-          Concerto Comemoração 25 Abril
-        </div>
-        <div className="Agenda-eventDescription">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tempor
-          incididunt ut labore et dolore magna Ut enim ad me ed do eiusmod tempor incididunt
-          ut labore et dolore magna Ut enim ad me. ed do eiusmod tempor incididunt ut labore et
-          dolore magna Ut enim ad me. ed do eiusmod tempor incididunt ut labore et dolore magna Ut
-          enim ad me.
-        </div>
-        <div className="Agenda-eventLocation">
-          Ponte 25 de abril, Lisboa
-        </div>
-      </div>
-    </div>
-    <div className="Agenda-action">Ver por mês</div>
-  </section>
-);
+import Event from './Event';
 
-export default Agenda;
+import events from '../../Data/Events.js';
+
+export default class Agenda extends Component {
+  constructor() {
+    super();
+    this.state = { activeEventIndex: 0 };
+  }
+
+  onNext = () => {
+    const { activeEventIndex } = this.state;
+
+    if (activeEventIndex < events.length - 1)
+      this.setState({ activeEventIndex: activeEventIndex + 1 });
+  };
+
+  onPrevious = () => {
+    const { activeEventIndex } = this.state;
+
+    if (activeEventIndex > 0)
+      this.setState({ activeEventIndex: activeEventIndex - 1 });
+  };
+
+  renderEvent() {
+    const { activeEventIndex } = this.state;
+    const eventData = events[activeEventIndex];
+
+    return (
+      <Event {...eventData} onPrevious={this.onPrevious} onNext={this.onNext} />
+    );
+  }
+
+  render() {
+    return (
+      <section className="Agenda">
+        <h1 className="Agenda-title">Agenda</h1>
+        <div className="Agenda-content">
+          {this.renderEvent()}
+        </div>
+      </section>
+    );
+  }
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import './index.scss';
 
@@ -9,13 +10,13 @@ const LINKS = [
   { label: 'Biografia', href: '#Biografia', className: 'Navbar-link' },
   { label: 'Noticias', href: '#Noticias', className: 'Navbar-link' },
   { label: 'Galeria', href: '#Galeria', className: 'Navbar-link' },
-  { label: 'Contactar', href: '#Contactar', className: 'Navbar-button' },
+  { label: 'Contactar', href: '#Contactar', className: 'Navbar-button' }
 ];
 
 const renderLinks = () =>
-  LINKS.map(({ label, href, className }, key) => (
+  LINKS.map(({ label, href, className }, key) =>
     <a key={key} className={className} href={href}>{label}</a>
-  ));
+  );
 
 export default class Navbar extends Component {
   constructor() {
@@ -27,8 +28,16 @@ export default class Navbar extends Component {
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
 
   render() {
+    const overlayClass = classNames({
+      'Navbar-overlay': true,
+      'is-open': this.state.mobileMenuOpen
+    });
+
     return (
       <div className="Navbar">
+        <div className={overlayClass}>
+          {renderLinks()}
+        </div>
         <div className="Navbar-content">
           {renderLinks()}
         </div>

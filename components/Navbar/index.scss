@@ -10,8 +10,6 @@ $Navbar-button-padding-base: 10px;
 .Navbar {
   padding: $Navbar-link-spacing-base;
 
-  background-color:rgba(3,0,84, 0.10);
-
   @include Breakpoint-mobileOnly {
     padding: 20px;
   }
@@ -38,6 +36,20 @@ $Navbar-button-padding-base: 10px;
   &:not(:last-child) {
     margin-right: $Navbar-link-spacing-base;
   }
+
+  @include Breakpoint-mobileOnly {
+    display: block;
+
+    margin-right: 0;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+  }
 }
 
 .Navbar-button {
@@ -52,6 +64,10 @@ $Navbar-button-padding-base: 10px;
 
     color: $Color-black;
   }
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  }
 }
 
 .Navbar-mobileButton {
@@ -61,4 +77,28 @@ $Navbar-button-padding-base: 10px;
     display: flex;
     justify-content: flex-end;
   }
+}
+
+.Navbar-overlay {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  transform: translateX(140px);
+
+  width: 140px;
+  height: 100vh;
+
+  padding: 100px 20px 20px;
+
+  background-color: rgba(#945252, 0.65);
+
+  text-align: right;
+
+  transition: all 0.3s linear;
+}
+
+.Navbar-overlay.is-open {
+  transform: translateX(0);
 }

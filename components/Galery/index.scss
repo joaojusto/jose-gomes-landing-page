@@ -1,21 +1,18 @@
 @import '../color';
 @import '../typography';
+@import '../breakpoint';
 
 $Galery-thumbnail-size: 120px;
+$Galery-thumbnail-size-mobile: 70px;
 
 .Galery {
-  display: flex;
-  flex-wrap: wrap;
+  padding: 100px 100px 75px;
 
   background-color: $Color-white;
-}
 
-.Galery-smallSection {
-  flex: 2;
-
-  padding: 100px 60px 60px;
-
-  box-shadow: 0 13.5px 14.5px 0 rgba(1, 0, 2, 0.35)
+  @include Breakpoint-mobileOnly {
+    padding: 20px;
+  }
 }
 
 .Galery-title {
@@ -27,37 +24,70 @@ $Galery-thumbnail-size: 120px;
   letter-spacing: 0.8px;
 
   text-transform: uppercase;
+
+  @include Breakpoint-mobileOnly {
+    margin-bottom: 55px;
+  }
 }
 
-.Galery-largeSection {
-  flex: 3;
+.Galery-content {
+  display: flex;
+  flex-direction: row;
+}
 
-  padding: 100px 0 60px;
+.Galery-section {
+  flex: 1;
+}
+
+.Galery-photoSection {
+  flex: 1;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  };
 }
 
 .Galery-navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 65px 0 100px;
 
-  margin-bottom: 100px;
+  @include Breakpoint-mobileOnly {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  };
 }
 
 .Galery-link {
-  flex: 1;
+  padding: 5px 50px;
 
-  padding: 14px 0;
+  border: 1px solid $Color-black;
 
-  color: #010c43;
-  font-size: 18px;
+  background-color: $Color-white;
+
+  font-size: 16px;
+  color: $Color-black;
   font-family: $Typography-font-family-sans;
-
+  text-decoration: none;
   text-align: center;
 
   cursor: pointer;
 
+  opacity: 0.4;
+
+  transition: all 0.3s linear;
+
+  &:hover {
+    background-color: $Color-black;
+
+    color: $Color-white;
+  }
+
   &.is-selected {
-    border: 1px solid $Color-black;
+    opacity: 1;
+  }
+
+  @include Breakpoint-mobileOnly {
+    padding: 5px 25px;
   }
 }
 
@@ -69,6 +99,12 @@ $Galery-thumbnail-size: 120px;
 
   margin: -15px;
   margin-bottom: 100px;
+
+  @include Breakpoint-mobileOnly {
+    margin: 0 auto;
+
+    max-width: (3 * $Galery-thumbnail-size-mobile) + 90px;
+  }
 }
 
 .Galery-thumbnail {
@@ -87,8 +123,20 @@ $Galery-thumbnail-size: 120px;
   &.is-selected {
     border: 4px solid $Color-aqua;
   }
+
+  @include Breakpoint-mobileOnly {
+    width: calc((100% / 3) - 30px);
+    height: auto;
+
+    margin: 15px;
+    padding-bottom: calc((100% / 3) - 30px);
+  }
 }
 
 .Galery-photoPreview {
   width: 100%;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  }
 }

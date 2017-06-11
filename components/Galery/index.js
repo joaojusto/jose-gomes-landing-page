@@ -7,12 +7,12 @@ const photos = [
   './photos/DSC_0037 (1).jpg',
   './photos/DSC_0063.jpg',
   './photos/DSC_0849.jpg',
-  './photos/DSC_0891.jpg',
+  './photos/DSC_0891.jpg'
 ].map(photo => require(photo));
 
 const tabs = {
   images: 'images',
-  videos: 'videos',
+  videos: 'videos'
 };
 
 export default class Galery extends Component {
@@ -27,7 +27,7 @@ export default class Galery extends Component {
     const isSelected = photo === this.state.selectedPhoto;
     const className = `Galery-thumbnail ${isSelected ? 'is-selected' : ''}`;
     const style = {
-      backgroundImage: `url(${photo})`,
+      backgroundImage: `url(${photo})`
     };
 
     return (
@@ -45,18 +45,20 @@ export default class Galery extends Component {
 
     return (
       <div className="Galery">
-        <div className="Galery-smallSection">
-          <h2 className="Galery-title">Galeria</h2>
-          <div className="Galery-navigation">
-            <a className="Galery-link is-selected">Imagens</a>
-            <a className="Galery-link">Videos</a>
-          </div>
-          <div className="Galery-thumbnails">
-            {photos.map(this.renderThumbnail)}
-          </div>
+        <h2 className="Galery-title">Galeria</h2>
+        <div className="Galery-navigation">
+          <a className="Galery-link is-selected">Imagens</a>
+          <a className="Galery-link">Videos</a>
         </div>
-        <div className="Galery-largeSection">
-          <img className="Galery-photoPreview" src={selectedPhoto} />
+        <div className="Galery-content">
+          <div className="Galery-section">
+            <div className="Galery-thumbnails">
+              {photos.map(this.renderThumbnail)}
+            </div>
+          </div>
+          <div className="Galery-photoSection">
+            <img className="Galery-photoPreview" src={selectedPhoto} />
+          </div>
         </div>
       </div>
     );

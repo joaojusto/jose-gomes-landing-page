@@ -35,7 +35,7 @@ export default class Calendar extends Component {
 
   renderWeekDays() {
     return weekDays.map(weekDay =>
-      <div className="Calendar-column">
+      <div key={weekDay} className="Calendar-column">
         <span className="Calendar-weekDay">{weekDay}</span>
       </div>
     );
@@ -50,8 +50,8 @@ export default class Calendar extends Component {
       i += 7;
     }
 
-    return weeks.map(week =>
-      <div className="Calendar-row">
+    return weeks.map((week, index) =>
+      <div key={index} className="Calendar-row">
         {this.renderWeek(week)}
       </div>
     );
@@ -59,7 +59,7 @@ export default class Calendar extends Component {
 
   renderWeek(week) {
     return week.map(day =>
-      <div className="Calendar-column">
+      <div key={day} className="Calendar-column">
         {this.renderDay(day)}
       </div>
     );

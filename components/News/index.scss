@@ -10,6 +10,67 @@
   @include Breakpoint-mobileOnly {
     flex-direction: row-reverse;
   }
+
+  @include Breakpoint-mobileOnly {
+    border-top: 1px solid $Color-black;
+  };
+}
+
+.News-title {
+  position: absolute;
+
+  top: 100px;
+  left: 100px;
+
+  font-size: 38px;
+  font-family: $Typography-font-family-sans;
+  color: $Color-black;
+  text-transform: uppercase;
+
+  @include Breakpoint-mobileOnly {
+    top: 20px;
+    left: 20px;
+
+    font-size: 22px;
+  }
+}
+
+.News-pagination {
+  position: absolute;
+
+  bottom: 65px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  @include Breakpoint-mobileOnly {
+    bottom: 20px;
+  }
+}
+
+.News-paginationItem {
+  display: inline-block;
+
+  width: 15px;
+  height: 15px;
+
+  margin-right: 40px;
+
+  border-radius: 50%;
+
+  background-color: $Color-grey;
+
+  transition: all 0.3s linear;
+
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.News-paginationItem.is-active {
+  background-color: $Color-pinky-red;
 }
 
 .News-contentColumn {
@@ -27,8 +88,6 @@
 
     width: 100%;
     height: 100%;
-
-    padding: 60px 0;
   };
 }
 
@@ -36,11 +95,30 @@
   flex: 1;
 
   width: 100%;
+
+  @include Breakpoint-mobileOnly {
+    padding: 60px 0;
+  };
 }
 
 .News-background {
   width: 100%;
   height: 100%;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  };
+}
+
+.News-backgroundMobile {
+  display: none;
+
+  width: 100%;
+  height: 100%;
+
+  @include Breakpoint-mobileOnly {
+    display: block;
+  };
 }
 
 .News-navigation {
@@ -55,19 +133,27 @@
   transform:  translateY(-50%);
 
   padding: 0 50px;
+
+  @include Breakpoint-mobileOnly {
+    padding: 0 10px;
+  };
 }
 
 .News-item {
   position: absolute;
 
   top: 50%;
-  left: 0;
+  left: 50%;
 
-  width: 100%;
+  width: calc(100% - 200px);
 
-  padding: 0 100px;
+  transform: translate(-50%, -50%);
 
-  transform: translateY(-50%);
+  z-index: 1;
+
+  @include Breakpoint-mobileOnly {
+    width: calc(100% - 80px);
+  };
 }
 
 .News-itemTitle {
@@ -76,6 +162,11 @@
   color: $Color-black;
   font-size: 21px;
   font-family: $Typography-font-family-serif;
+
+  @include Breakpoint-mobileOnly {
+    font-size: 14px;
+    color: $Color-white;
+  };
 }
 
 .News-itemDescription {
@@ -84,6 +175,11 @@
   color: $Color-black;
   font-size: 16px;
   font-family: $Typography-font-family-serif;
+
+  @include Breakpoint-mobileOnly {
+    font-size: 12px;
+    color: $Color-white;
+  };
 }
 
 .News-itemDate {
@@ -97,6 +193,11 @@
   font-size: 16px;
   font-family: $Typography-font-family-serif;
   text-align: right;
+
+  @include Breakpoint-mobileOnly {
+    font-size: 12px;
+    color: $Color-white;
+  };
 }
 
 .News-itemLink {

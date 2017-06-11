@@ -4,6 +4,7 @@ import './index.scss';
 
 import news from '../../Data/News';
 import Background from './background.jpg';
+import BackgroundMobile from './background-mobile.jpg';
 import LinkIcon from './link.svg';
 
 import Navigation from '../Navigation';
@@ -43,17 +44,43 @@ export default class News extends Component {
       this.setState({ currentNewsIndex: currentNewsIndex - 1 });
   };
 
+  setCurrentNews = index => () => this.setState({ currentNewsIndex: index });
+
+  renderPagination() {
+    return news.map((_, index) => {
+      if (index === this.state.currentNewsIndex)
+        return (
+          <div
+            onClick={this.setCurrentNews(index)}
+            className="News-paginationItem is-active"
+          />
+        );
+
+      return (
+        <div
+          onClick={this.setCurrentNews(index)}
+          className="News-paginationItem"
+        />
+      );
+    });
+  }
+
   render() {
     return (
       <div className="News">
         <div className="News-contentColumn">
+          <h2 className="News-title">Notícias</h2>
           {this.renderNews()}
           <div className="News-navigation">
             <Navigation onNext={this.onNext} onPrevious={this.onPrevious} />
           </div>
+          <div className="News-pagination">
+            {this.renderPagination()}
+          </div>
         </div>
         <div className="News-backgroundColumn">
           <img className="News-background" src={Background} />
+          <img className="News-backgroundMobile" src={BackgroundMobile} />
         </div>
       </div>
     );

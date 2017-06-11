@@ -15,12 +15,12 @@ $Hero-font-subtitle-size-mobile: 16px;
 }
 
 .Hero-mobileBackground {
-  display: block;
+  display: none;
 
   width: 100%;
 
-  @include Breakpoint-desktopOnly {
-    display: none;
+  @include Breakpoint-mobileOnly {
+    display: block;
   }
 }
 

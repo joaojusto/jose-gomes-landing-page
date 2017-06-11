@@ -5,7 +5,7 @@
 .Agenda {
   position: relative;
 
-  padding: 250px 100px;
+  padding: 250px 0;
 
   @include Breakpoint-mobileOnly {
     padding: 60px 0;
@@ -15,6 +15,7 @@
 .Agenda-content {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 
   text-align: center;
 }
@@ -36,4 +37,18 @@
 
     font-size: 22px;
   };
+}
+
+.Agenda-calendarContainer {
+  width: 100%;
+  max-width: 400px;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  };
+}
+
+.Agenda-eventContainer {
+  width: 100%;
+  max-width: 840px;
 }

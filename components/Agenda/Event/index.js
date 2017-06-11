@@ -15,12 +15,12 @@ const Event = props =>
       <div className="Event-navigation">
         <Navigation onNext={props.onNext} onPrevious={props.onPrevious} />
       </div>
-    </div>
-    <div className="Event-content">
-      <div className="Event-date">{props.date}</div>
-      <div className="Event-location">{props.location}</div>
-      <div className="Event-name">{props.name}</div>
-      <div className="Event-description">{props.description}</div>
+      <div className="Event-content">
+        <div className="Event-date">{props.date}</div>
+        <div className="Event-location">{props.location}</div>
+        <div className="Event-name">{props.name}</div>
+        <div className="Event-description">{props.description}</div>
+      </div>
     </div>
     <div className="Event-mobileContent">
       <div className="Event-descriptionMobile">{props.description}</div>

@@ -1,49 +1,111 @@
 @import "../color";
 @import "../typography";
-
-$News-spacing-xsmall: 20px;
-$News-spacing-small: 30px;
-$News-spacing-base: 40px;
-$News-spacing-large: 60px;
+@import "../breakpoint";
 
 .News {
-  padding: 100px $News-spacing-large $News-spacing-large;
+  position: relative;
 
-  background-image: url('./news.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.News-title {
-  margin-bottom: $News-spacing-large;
-
-  color: $Color-dark-peach;
-  font-family: $Typography-font-family-sans;
-  font-size: 30px;
-  letter-spacing: 0.8px;
-
-  text-transform: uppercase;
-}
-
-.News-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  @include Breakpoint-mobileOnly {
+    flex-direction: row-reverse;
+  }
 }
 
-.News-listItem {
-  margin: $News-spacing-large 0;
+.News-contentColumn {
+  position: relative;
 
-  &:first-child {
-    align-self: flex-start;
-  }
+  flex: 1;
 
-  &:last-child {
-    align-self: flex-end;
-  }
+  width: 100%;
+
+  @include Breakpoint-mobileOnly {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 60px 0;
+  };
+}
+
+.News-backgroundColumn {
+  flex: 1;
+
+  width: 100%;
+}
+
+.News-background {
+  width: 100%;
+  height: 100%;
 }
 
 .News-navigation {
-  margin-top: 200px;
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform:  translateY(-50%);
+
+  padding: 0 50px;
+}
+
+.News-item {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+
+  padding: 0 100px;
+
+  transform: translateY(-50%);
+}
+
+.News-itemTitle {
+  margin-bottom: 30px;
+
+  color: $Color-black;
+  font-size: 21px;
+  font-family: $Typography-font-family-serif;
+}
+
+.News-itemDescription {
+  margin-bottom: 30px;
+
+  color: $Color-black;
+  font-size: 16px;
+  font-family: $Typography-font-family-serif;
+}
+
+.News-itemDate {
+  display: block;
+
+  width: 100%;
+
+  margin-bottom: 15px;
+
+  color: $Color-black;
+  font-size: 16px;
+  font-family: $Typography-font-family-serif;
+  text-align: right;
+}
+
+.News-itemLink {
+  display: block;
+
+  width: 20px;
+  height: 20px;
+
+  margin: 0 auto;
+
+  cursor: pointer;
 }

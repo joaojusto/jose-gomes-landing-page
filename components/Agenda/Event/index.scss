@@ -3,8 +3,6 @@
 @import "../../breakpoint";
 
 .Event {
-  position: relative;
-
   max-width: 840px;
 
   border: 1px solid $Color-black;
@@ -38,6 +36,8 @@
 .Event-backgroundMobile {
   display: none;
 
+  width: 100%;
+
   @include Breakpoint-mobileOnly {
     display: block;
   };
@@ -58,9 +58,13 @@
   font-family: $Typography-font-family-sans;
 
   @include Breakpoint-mobileOnly {
-    padding: 25px 25px;
+    top: 50%;
 
     height: auto;
+
+    transform: translateY(-50%);
+
+    padding: 25px 25px;
   };
 }
 

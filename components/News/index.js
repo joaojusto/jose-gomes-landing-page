@@ -1,40 +1,61 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './index.scss';
-import NewsLink from '../NewsLink';
 
-const news = [
-  {
-    url: '',
-    date: '04/09/2014 in P3',
-    title: 'José Eduardo Gomes, um maestro com apenas 31 anos',
-  },
-  {
-    url: '',
-    date: '04/09/2014 in P3',
-    title: 'José Eduardo Gomes, o jovem maestro',
-  },
-  {
-    url: '',
-    date: '04/09/2014 in P3',
-    title: 'José Eduardo Gomes, um maestro com apenas 31 anos',
-  },
-];
+import news from '../../Data/News';
+import Background from './background.jpg';
+import LinkIcon from './link.svg';
 
-const News = () => (
-  <section className="News">
-    <h2 className="News-title">noticias</h2>
-    <div className="News-content">
-      <div className="News-list">
-        {news.map((data, index) => (
-          <div key={index} className="News-listItem">
-            <NewsLink {...data} />
-          </div>
-        ))}
+import Navigation from '../Navigation';
+
+export default class News extends Component {
+  constructor() {
+    super();
+    this.state = { currentNewsIndex: 0 };
+  }
+
+  renderNews() {
+    const currentNews = news[this.state.currentNewsIndex];
+
+    return (
+      <div className="News-item">
+        <h3 className="News-itemTitle">{currentNews.title}</h3>
+        <p className="News-itemDescription">{currentNews.content}</p>
+        <span className="News-itemDate">{currentNews.date}</span>
+        <a className="News-itemLink" href={currentNews.url}>
+          <img src={LinkIcon} />
+        </a>
       </div>
-      <div className="News-navigation" />
-    </div>
-  </section>
-);
+    );
+  }
 
-export default News;
+  onNext = () => {
+    const { currentNewsIndex } = this.state;
+
+    if (currentNewsIndex < news.length - 1)
+      this.setState({ currentNewsIndex: currentNewsIndex + 1 });
+  };
+
+  onPrevious = () => {
+    const { currentNewsIndex } = this.state;
+
+    if (currentNewsIndex > 0)
+      this.setState({ currentNewsIndex: currentNewsIndex - 1 });
+  };
+
+  render() {
+    return (
+      <div className="News">
+        <div className="News-contentColumn">
+          {this.renderNews()}
+          <div className="News-navigation">
+            <Navigation onNext={this.onNext} onPrevious={this.onPrevious} />
+          </div>
+        </div>
+        <div className="News-backgroundColumn">
+          <img className="News-background" src={Background} />
+        </div>
+      </div>
+    );
+  }
+}

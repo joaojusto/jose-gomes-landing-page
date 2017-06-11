@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './index.scss';
 
 import Event from './Event';
+import Calendar from './Calendar';
 
 import events from '../../Data/Events.js';
 
@@ -35,12 +36,26 @@ export default class Agenda extends Component {
     );
   }
 
+  onEventClick = selectedEvent => {
+    const foundEvent = events.find(
+      event => event.day === selectedEvent.day && event.month === event.month
+    );
+    const eventIndex = events.indexOf(foundEvent);
+
+    this.setState({ activeEventIndex: eventIndex });
+  };
+
   render() {
     return (
       <section className="Agenda">
         <h1 className="Agenda-title">Agenda</h1>
         <div className="Agenda-content">
-          {this.renderEvent()}
+          <div className="Agenda-calendarContainer">
+            <Calendar events={events} onEventClick={this.onEventClick} />
+          </div>
+          <div className="Agenda-eventContainer">
+            {this.renderEvent()}
+          </div>
         </div>
       </section>
     );

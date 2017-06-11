@@ -9,11 +9,9 @@
 
   @include Breakpoint-mobileOnly {
     flex-direction: row-reverse;
-  }
 
-  @include Breakpoint-mobileOnly {
     border-top: 1px solid $Color-black;
-  };
+  }
 }
 
 .News-title {

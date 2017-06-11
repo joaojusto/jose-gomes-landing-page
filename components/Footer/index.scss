@@ -1,19 +1,38 @@
 @import '../color';
 @import '../typography';
+@import '../breakpoint';
 
 .Footer {
   display: flex;
   flex-wrap: wrap;
 
-  padding: 120px 70px 30px;
+  padding: 100px 100px 10px;
 
   background-image: url('./background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+
+  @include Breakpoint-mobileOnly {
+    padding: 20px;
+  }
 }
 
 .Footer-column {
   flex: 1;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  }
+}
+
+.Footer-content {
+  @include Breakpoint-mobileOnly {
+    display: flex;
+    flex-direction: column-reverse;
+
+    font-size: 14px;
+    line-height: 100%;
+  }
 }
 
 .Footer-largeColumn {
@@ -37,6 +56,10 @@
 
 .Footer-socialLinks {
   margin: 40px 0;
+
+  @include Breakpoint-mobileOnly {
+    margin: 20px 0 50px;
+  }
 }
 
 .Footer-socialLink {
@@ -45,4 +68,10 @@
 
 .Footer-copywrite {
   font-size: 12px;
+
+  @include Breakpoint-mobileOnly {
+    margin-top: 50px;
+
+    line-height: 100%;
+  }
 }

@@ -139,6 +139,8 @@ $Galery-thumbnail-size-mobile: 70px;
     margin: 15px;
     padding-bottom: calc((100% / 3) - 30px);
 
+    transition: none;
+
     &.is-selected {
       padding-bottom: calc((100% / 3) - 38px);
     }

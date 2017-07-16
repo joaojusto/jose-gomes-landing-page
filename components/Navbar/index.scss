@@ -10,6 +10,8 @@ $Navbar-button-padding-base: 10px;
 .Navbar {
   padding: $Navbar-link-spacing-base;
 
+  transition: background-color 0.3s ease-in;
+
   @include Breakpoint-mobileOnly {
     padding: 20px;
   }

@@ -80,6 +80,10 @@
   color: $Color-dark-blue;
   font-family: $Typography-font-family-sans;
   line-height: 150%;
+
+  &.is-disabled {
+    opacity: 0.5;
+  }
 }
 
 .Calendar-dayWithEvent {

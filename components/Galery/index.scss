@@ -33,6 +33,10 @@ $Galery-thumbnail-size-mobile: 70px;
 .Galery-content {
   display: flex;
   flex-direction: row;
+
+  @include Breakpoint-mobileOnly {
+    flex-direction: column-reverse;
+  }
 }
 
 .Galery-section {
@@ -43,8 +47,8 @@ $Galery-thumbnail-size-mobile: 70px;
   flex: 1;
 
   @include Breakpoint-mobileOnly {
-    display: none;
-  };
+    margin-bottom: 20px;
+  }
 }
 
 .Galery-navigation {
@@ -130,13 +134,13 @@ $Galery-thumbnail-size-mobile: 70px;
 
     margin: 15px;
     padding-bottom: calc((100% / 3) - 30px);
+
+    &.is-selected {
+      padding-bottom: calc((100% / 3) - 38px);
+    }
   }
 }
 
 .Galery-photoPreview {
   width: 100%;
-
-  @include Breakpoint-mobileOnly {
-    display: none;
-  }
 }

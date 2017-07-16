@@ -51,6 +51,7 @@ export default class News extends Component {
       if (index === this.state.currentNewsIndex)
         return (
           <div
+            key={index}
             onClick={this.setCurrentNews(index)}
             className="News-paginationItem is-active"
           />
@@ -58,6 +59,7 @@ export default class News extends Component {
 
       return (
         <div
+          key={index}
           onClick={this.setCurrentNews(index)}
           className="News-paginationItem"
         />
@@ -67,7 +69,7 @@ export default class News extends Component {
 
   render() {
     return (
-      <div className="News">
+      <section className="News" id="Noticias">
         <div className="News-contentColumn">
           <h2 className="News-title">Notícias</h2>
           {this.renderNews()}
@@ -82,7 +84,7 @@ export default class News extends Component {
           <img className="News-background" src={Background} />
           <img className="News-backgroundMobile" src={BackgroundMobile} />
         </div>
-      </div>
+      </section>
     );
   }
 }

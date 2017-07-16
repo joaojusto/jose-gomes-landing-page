@@ -151,6 +151,8 @@
 
   @include Breakpoint-mobileOnly {
     width: calc(100% - 80px);
+
+    z-index: 0;
   };
 }
 

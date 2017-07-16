@@ -17,7 +17,7 @@ const Template = ({ children }) => (
   <div className="Layout">
     <Helmet title={config.siteTitle} meta={meta} />
     <nav className="Layout-navbar">
-      <Headroom>
+      <Headroom disableInlineStyles>
         <Navbar />
       </Headroom>
     </nav>

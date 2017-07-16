@@ -3,7 +3,7 @@ export default [
     day: 25,
     month: 5,
     year: 2017,
-    date: '25 Abril',
+    date: '25 Maio',
     location: 'Ponte 25 de abril, Lisboa',
     name: 'Concerto Comemoração da Liberdade',
     description:
@@ -13,7 +13,7 @@ export default [
     day: 26,
     month: 5,
     year: 2017,
-    date: '26 Abril',
+    date: '26 Maio',
     location: 'Ponte 25 de abril, Lisboa',
     name: 'Concerto Comemoração da Liberdade',
     description:
@@ -23,7 +23,7 @@ export default [
     day: 27,
     month: 5,
     year: 2017,
-    date: '27 Abril',
+    date: '27 Maio',
     location: 'Ponte 25 de abril, Lisboa',
     name: 'Concerto Comemoração da Liberdade',
     description:
@@ -33,7 +33,7 @@ export default [
     day: 29,
     month: 5,
     year: 2017,
-    date: '29 Abril',
+    date: '29 Maio',
     location: 'Ponte 25 de abril, Lisboa',
     name: 'Concerto Comemoração da Liberdade',
     description:
@@ -43,7 +43,7 @@ export default [
     day: 1,
     month: 5,
     year: 2017,
-    date: '1 Abril',
+    date: '1 Maio',
     location: 'Ponte 25 de abril, Lisboa',
     name: 'Concerto Comemoração da Liberdade',
     description:

@@ -47,7 +47,7 @@ export default class Agenda extends Component {
 
   render() {
     return (
-      <section className="Agenda">
+      <section className="Agenda" id="Agenda">
         <h1 className="Agenda-title">Agenda</h1>
         <div className="Agenda-content">
           <div className="Agenda-calendarContainer">

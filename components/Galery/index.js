@@ -12,7 +12,6 @@ const photos = [
 
 const tabs = {
   images: 'images',
-  videos: 'videos'
 };
 
 export default class Galery extends Component {
@@ -44,12 +43,12 @@ export default class Galery extends Component {
     const { selectedPhoto } = this.state;
 
     return (
-      <div className="Galery">
+      <section className="Galery" id="Galeria">
         <h2 className="Galery-title">Galeria</h2>
-        <div className="Galery-navigation">
+        {/* <div className="Galery-navigation">
           <a className="Galery-link is-selected">Imagens</a>
           <a className="Galery-link">Videos</a>
-        </div>
+        </div> */}
         <div className="Galery-content">
           <div className="Galery-section">
             <div className="Galery-thumbnails">
@@ -60,7 +59,7 @@ export default class Galery extends Component {
             <img className="Galery-photoPreview" src={selectedPhoto} />
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

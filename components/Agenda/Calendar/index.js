@@ -1,72 +1,84 @@
 import React, { Component } from 'react';
+import Moment from 'moment';
+import classNames from 'classnames';
+
+Moment.locale('pt');
+const moment = Moment;
 
 import './index.scss';
 
 import Navigation from '../../Navigation';
 
-const weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-
-const month = (() => {
-  let m = [];
-  for (let i = 1; i <= 31; i++) {
-    m.push(i);
-  }
-  for (let i = 1; i <= 11; i++) {
-    m.push(i);
-  }
-  return m;
-})();
-
 export default class Calendar extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentMonth: 'April' };
+    this.state = { currentMonth: moment() };
   }
 
   onNext = () => {
-    console.log('next');
+    const nextMonth = this.state.currentMonth.clone().add(1, 'month');
+    this.setState({ currentMonth: nextMonth });
   };
 
   onPrevious = () => {
-    console.log('previous');
+    const previousMonth = this.state.currentMonth.clone().subtract(1, 'month');
+    this.setState({ currentMonth: previousMonth });
   };
 
   onEventClick = event => () => this.props.onEventClick(event);
 
   renderWeekDays() {
-    return weekDays.map(weekDay =>
+    return moment.weekdaysShort().map(weekDay => (
       <div key={weekDay} className="Calendar-column">
         <span className="Calendar-weekDay">{weekDay}</span>
       </div>
-    );
+    ));
   }
 
   renderMonth() {
-    let i = 0;
-    let weeks = [];
+    const endOfMonth = this.state.currentMonth.clone().endOf('month');
+    const startOfMonth = this.state.currentMonth.clone().startOf('month');
 
-    while (i <= month.length + 7) {
-      weeks.push(month.slice(i, i + 7));
-      i += 7;
+    const numberOfWeeks = endOfMonth.week() - startOfMonth.week();
+
+    let weeks = [];
+    let currentDay = startOfMonth.clone().startOf('week');
+
+    while (weeks.length <= numberOfWeeks) {
+      let week = [];
+      let currentWeek = currentDay.week();
+
+      while (currentWeek === currentDay.week()) {
+        week.push(currentDay.clone());
+        currentDay.add(1, 'day');
+      }
+
+      weeks.push(week);
     }
 
-    return weeks.map((week, index) =>
+    return weeks.map((week, index) => (
       <div key={index} className="Calendar-row">
         {this.renderWeek(week)}
       </div>
-    );
+    ));
   }
 
   renderWeek(week) {
-    return week.map(day =>
+    return week.map(day => (
       <div key={day} className="Calendar-column">
         {this.renderDay(day)}
       </div>
-    );
+    ));
   }
 
   renderDay(day) {
-    const eventForDay = this.props.events.find(event => event.day === day);
+    const { currentMonth } = this.state;
+
+    const eventForDay = this.props.events.find(event =>
+      currentMonth.month() + 1 === event.month &&
+        event.month === day.month() + 1 &&
+        event.day === day.date()
+    );
 
     if (eventForDay)
       return (
@@ -74,11 +86,16 @@ export default class Calendar extends Component {
           className="Calendar-dayWithEvent"
           onClick={this.onEventClick(eventForDay)}
         >
-          {day}
+          {day.date()}
         </span>
       );
 
-    return <span className="Calendar-day">{day}</span>;
+    const className = classNames({
+      'Calendar-day': true,
+      'is-disabled': day.month() !== currentMonth.month()
+    });
+
+    return <span className={className}>{day.date()}</span>;
   }
 
   render() {
@@ -90,8 +107,8 @@ export default class Calendar extends Component {
           <div className="Calendar-navigation">
             <Navigation onNext={this.onNext} onPrevious={this.onPrevious} />
           </div>
-          <div className="Calendar-currentMonth">Abril</div>
-          <div className="Calendar-currentYear">2017</div>
+          <div className="Calendar-currentMonth">{currentMonth.format('MMMM')}</div>
+          <div className="Calendar-currentYear">{currentMonth.year()}</div>
         </div>
         <div className="Calendar-content">
           <div className="Calendar-row">

@@ -5,7 +5,7 @@ import TwitterLogo from './twitter.svg';
 import FacebookLogo from './facebook.svg';
 
 const Footer = () =>
-  <div className="Footer">
+  <section className="Footer" id="Contactar">
     <div className="Footer-column">
       <h2 className="Footer-title">Contacto</h2>
     </div>
@@ -26,6 +26,6 @@ const Footer = () =>
       </p>
     </div>
     <div className="Footer-column" />
-  </div>;
+  </section>;
 
 export default Footer;

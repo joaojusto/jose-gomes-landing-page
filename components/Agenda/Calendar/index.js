@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Moment from 'moment';
 import classNames from 'classnames';
 
-Moment.locale('pt');
 const moment = Moment;
+moment.locale('pt');
 
 import './index.scss';
 

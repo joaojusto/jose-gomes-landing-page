@@ -15,7 +15,7 @@ export default [
     year: 2017,
     date: 'Dia 21 Julho 2017 - 21:00',
     location: 'Fundação Calouste Gulbenkian, Lisboa',
-    name: 'Concerto pela Orquestra Gulbenkian, Dia do Fundador',
+    name: 'Concerto pela Orquestra Gulbenkian',
     description: 'Agostinho Sequeira (percussão), José Eduardo Gomes (Direção)'
   },
   {
@@ -24,7 +24,7 @@ export default [
     year: 2017,
     date: 'Dia 23 Julho 2017 - 21:00',
     location: 'Anfiteatro Colina de Camões, Quinta das Lágrimas, Coimbra',
-    name: 'Do Romântico ao Clássicor',
+    name: 'Do Romântico ao Clássico',
     description: 'Orquestra Gulbenkian, Tamila Kharambura (violino), José Eduardo Gomes (maestro)',
     url: 'http://www.festivaldasartes.com/og2017/'
   },

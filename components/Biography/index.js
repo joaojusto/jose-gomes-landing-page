@@ -24,10 +24,9 @@ const Biography = () =>
         </p>
 
         <div className="Biography-actions">
-          <a href="/biografia.pdf" target="_blank" className="Biography-button">
+          <a href="/bio_pt.pdf" target="_blank" className="Biography-button">
             Download Biografia
           </a>
-          <a href="" className="Biography-button">Ler Biografia Completa</a>
         </div>
       </div>
     </div>

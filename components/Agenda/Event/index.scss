@@ -118,6 +118,7 @@
   text-align: center;
 
   @include Breakpoint-mobileOnly {
+    padding: 0 20px;
     margin-bottom: 0px;
 
     font-size: 21px;
@@ -157,5 +158,20 @@
 
   @include Breakpoint-mobileOnly {
     padding: 0 0px;
+  };
+}
+
+.Event-link {
+  display: block;
+
+  width: 20px;
+  height: 20px;
+
+  margin: 20px auto 0;
+
+  cursor: pointer;
+
+  @include Breakpoint-mobileOnly {
+    margin-top: 10px;
   };
 }

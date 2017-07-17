@@ -16,8 +16,12 @@ const Footer = () =>
           <p>gomes.jose83@gmail.com</p>
         </div>
         <div className="Footer-socialLinks">
-          <img src={FacebookLogo} className="Footer-socialLink" />
-          <img src={TwitterLogo} className="Footer-socialLink" />
+          <a href="https://www.facebook.com/José-Eduardo-Gomes-198462783943299">
+            <img src={FacebookLogo} className="Footer-socialLink" />
+          </a>
+          <a href="https://twitter.com/jose_gomes83">
+            <img src={TwitterLogo} className="Footer-socialLink" />
+          </a>
         </div>
       </div>
       <p className="Footer-copywrite">

@@ -6,6 +6,7 @@ import Background from './background.jpg';
 import BackgroundMobile from './background-mobile.jpg';
 import LocationIcon from './location.svg';
 import Navigation from '../../Navigation';
+import LinkIcon from './link.svg';
 
 const Event = props =>
   <div className="Event">
@@ -20,6 +21,7 @@ const Event = props =>
         <div className="Event-location">{props.location}</div>
         <div className="Event-name">{props.name}</div>
         <div className="Event-description">{props.description}</div>
+        { props.url ? <a className="Event-link" href={props.url}><img src={LinkIcon} /></a> : null }
       </div>
     </div>
     <div className="Event-mobileContent">

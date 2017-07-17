@@ -15,8 +15,8 @@ const Biography = () =>
     <div className="Biography-contentColumn">
       <div className="Biography-excerpt">
         <p>
-          José Eduardo é maestro titular da Orquestra Clássica do Centro,
-          Orquestra Clássica da FEUP e do Coro do Círculo Portuense de Ópera.
+          José Eduardo é maestro titular da Orquestra Clássica do Centro e
+          Orquestra Clássica da FEUP.
           Recentemente foi laureado com o 2º Prémio no Concurso Prémio Jovens
           Músicos, na
           categoria de Direção de Orquestra, tendo obtido igualmente o Prémio da

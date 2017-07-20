@@ -1,8 +1,10 @@
 ---
-location: 'Fundação Calouste Gulbenkian, Lisboa'
+location: 'Ruinas do Convento do Carmo, Lisboa'
 title: Concerto pela Orquestra Gulbenkian
-description: 'Agostinho Sequeira (percussão), José Eduardo Gomes (Direção)'
+description: >-
+  Orquestra Gulbenkian, Tamila Kharambura (violino), José Eduardo Gomes
+  (maestro)
 url: null
-dateTime: 07/21/2017 9:00 PM
+dateTime: 2017-07-27T21:30:28+02:00
 ---
 

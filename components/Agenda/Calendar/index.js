@@ -28,11 +28,13 @@ export default class Calendar extends Component {
   onEventClick = event => () => this.props.onEventClick(event);
 
   renderWeekDays() {
-    return moment.weekdaysShort().map(weekDay => (
+    return moment.weekdaysShort().map(weekDay =>
       <div key={weekDay} className="Calendar-column">
-        <span className="Calendar-weekDay">{weekDay}</span>
+        <span className="Calendar-weekDay">
+          {weekDay}
+        </span>
       </div>
-    ));
+    );
   }
 
   renderMonth() {
@@ -56,29 +58,28 @@ export default class Calendar extends Component {
       weeks.push(week);
     }
 
-    return weeks.map((week, index) => (
+    return weeks.map((week, index) =>
       <div key={index} className="Calendar-row">
         {this.renderWeek(week)}
       </div>
-    ));
+    );
   }
 
   renderWeek(week) {
-    return week.map(day => (
+    return week.map(day =>
       <div key={day} className="Calendar-column">
         {this.renderDay(day)}
       </div>
-    ));
+    );
   }
 
   renderDay(day) {
     const { currentMonth } = this.state;
 
-    const eventForDay = this.props.events.find(event =>
-      currentMonth.month() + 1 === event.month &&
-        event.month === day.month() + 1 &&
-        event.day === day.date()
-    );
+    const eventForDay = this.props.events.find(event => {
+      const eventDate = moment(event.dateTime).endOf('day');
+      return day.endOf('day').isSame(event.dateTime, 'day');
+    });
 
     if (eventForDay)
       return (
@@ -95,7 +96,11 @@ export default class Calendar extends Component {
       'is-disabled': day.month() !== currentMonth.month()
     });
 
-    return <span className={className}>{day.date()}</span>;
+    return (
+      <span className={className}>
+        {day.date()}
+      </span>
+    );
   }
 
   render() {
@@ -107,8 +112,12 @@ export default class Calendar extends Component {
           <div className="Calendar-navigation">
             <Navigation onNext={this.onNext} onPrevious={this.onPrevious} />
           </div>
-          <div className="Calendar-currentMonth">{currentMonth.format('MMMM')}</div>
-          <div className="Calendar-currentYear">{currentMonth.year()}</div>
+          <div className="Calendar-currentMonth">
+            {currentMonth.format('MMMM')}
+          </div>
+          <div className="Calendar-currentYear">
+            {currentMonth.year()}
+          </div>
         </div>
         <div className="Calendar-content">
           <div className="Calendar-row">

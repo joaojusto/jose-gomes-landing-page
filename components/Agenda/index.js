@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import EventsContainer from '../../containers/Events';
 
 import './index.scss';
 
 import Event from './Event';
 import Calendar from './Calendar';
 
-import events from '../../Data/Events.js';
-
-export default class Agenda extends Component {
+class Agenda extends Component {
   constructor() {
     super();
     this.state = { activeEventIndex: 0 };
@@ -16,7 +16,7 @@ export default class Agenda extends Component {
   onNext = () => {
     const { activeEventIndex } = this.state;
 
-    if (activeEventIndex < events.length - 1)
+    if (activeEventIndex < this.props.events.length - 1)
       this.setState({ activeEventIndex: activeEventIndex + 1 });
   };
 
@@ -29,7 +29,7 @@ export default class Agenda extends Component {
 
   renderEvent() {
     const { activeEventIndex } = this.state;
-    const eventData = events[activeEventIndex];
+    const eventData = this.props.events[activeEventIndex];
 
     return (
       <Event {...eventData} onPrevious={this.onPrevious} onNext={this.onNext} />
@@ -37,10 +37,10 @@ export default class Agenda extends Component {
   }
 
   onEventClick = selectedEvent => {
-    const foundEvent = events.find(
-      event => event.day === selectedEvent.day && event.month === event.month
+    const foundEvent = this.props.events.find(event =>
+      moment(event.dateTime).isSame(selectedEvent.dateTime)
     );
-    const eventIndex = events.indexOf(foundEvent);
+    const eventIndex = this.props.events.indexOf(foundEvent);
 
     this.setState({ activeEventIndex: eventIndex });
   };
@@ -51,7 +51,10 @@ export default class Agenda extends Component {
         <h1 className="Agenda-title">Agenda</h1>
         <div className="Agenda-content">
           <div className="Agenda-calendarContainer">
-            <Calendar events={events} onEventClick={this.onEventClick} />
+            <Calendar
+              events={this.props.events}
+              onEventClick={this.onEventClick}
+            />
           </div>
           <div className="Agenda-eventContainer">
             {this.renderEvent()}
@@ -61,3 +64,5 @@ export default class Agenda extends Component {
     );
   }
 }
+
+export default EventsContainer(Agenda);

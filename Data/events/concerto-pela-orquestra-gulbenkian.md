@@ -5,6 +5,5 @@ description: >-
   Orquestra Gulbenkian, Tamila Kharambura (violino), José Eduardo Gomes
   (maestro)
 url: null
-dateTime: 2017-07-27T21:30:28+02:00
+dateTime: 07/27/2017 9:30 PM
 ---
-

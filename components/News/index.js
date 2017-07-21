@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
+import NewsContainer from '../../containers/News';
 
 import './index.scss';
 
-import news from '../../Data/News';
 import Background from './background.jpg';
 import BackgroundMobile from './background-mobile.jpg';
 import LinkIcon from './link.svg';
 
 import Navigation from '../Navigation';
 
-export default class News extends Component {
+class News extends Component {
   constructor() {
     super();
     this.state = { currentNewsIndex: 0 };
   }
 
   renderNews() {
-    const currentNews = news[this.state.currentNewsIndex];
+    const currentNews = this.props.news[this.state.currentNewsIndex];
 
     return (
       <div className="News-item">
-        <h3 className="News-itemTitle">{currentNews.title}</h3>
-        <p className="News-itemDescription">{currentNews.content}</p>
-        <span className="News-itemDate">{currentNews.date}</span>
+        <h3 className="News-itemTitle">
+          {currentNews.title}
+        </h3>
+        <p className="News-itemDescription">
+          {currentNews.content}
+        </p>
+        <span className="News-itemDate">
+          {currentNews.dateTime}
+        </span>
         <a className="News-itemLink" href={currentNews.url}>
           <img src={LinkIcon} />
         </a>
@@ -33,7 +39,7 @@ export default class News extends Component {
   onNext = () => {
     const { currentNewsIndex } = this.state;
 
-    if (currentNewsIndex < news.length - 1)
+    if (currentNewsIndex < this.props.news.length - 1)
       this.setState({ currentNewsIndex: currentNewsIndex + 1 });
   };
 
@@ -47,7 +53,7 @@ export default class News extends Component {
   setCurrentNews = index => () => this.setState({ currentNewsIndex: index });
 
   renderPagination() {
-    return news.map((_, index) => {
+    return this.props.news.map((_, index) => {
       if (index === this.state.currentNewsIndex)
         return (
           <div
@@ -88,3 +94,5 @@ export default class News extends Component {
     );
   }
 }
+
+export default NewsContainer(News);

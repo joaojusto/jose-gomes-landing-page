@@ -1,4 +1,7 @@
 import React from 'react';
+import moment from 'moment';
+
+moment.locale('pt');
 
 import './index.scss';
 
@@ -17,15 +20,31 @@ const Event = props =>
         <Navigation onNext={props.onNext} onPrevious={props.onPrevious} />
       </div>
       <div className="Event-content">
-        <div className="Event-date">{props.date}</div>
-        <div className="Event-location">{props.location}</div>
-        <div className="Event-name">{props.name}</div>
-        <div className="Event-description">{props.description}</div>
-        { props.url ? <a className="Event-link" href={props.url}><img src={LinkIcon} /></a> : null }
+        <div className="Event-date">
+          {moment(props.dateTime, 'MM-DD-YYYY h:mm a').format(
+            'DD MMMM YYYY - HH:mm'
+          )}
+        </div>
+        <div className="Event-location">
+          {props.location}
+        </div>
+        <div className="Event-name">
+          {props.title}
+        </div>
+        <div className="Event-description">
+          {props.description}
+        </div>
+        {props.url
+          ? <a className="Event-link" href={props.url}>
+              <img src={LinkIcon} />
+            </a>
+          : null}
       </div>
     </div>
     <div className="Event-mobileContent">
-      <div className="Event-descriptionMobile">{props.description}</div>
+      <div className="Event-descriptionMobile">
+        {props.description}
+      </div>
       <div className="Event-locationMobile">
         <img src={LocationIcon} />
         {props.location}

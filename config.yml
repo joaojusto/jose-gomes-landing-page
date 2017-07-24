@@ -1,9 +1,6 @@
 backend:
   name: github
   repo: joaojusto/jose-gomes-landing-page
-  branch: master
-  api_root: https://github.joseeduardogomes.com/api/v3
-  site_domain: http://joseeduardogomes.com/
 
 media_folder: "media/"
 

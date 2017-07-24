@@ -7,7 +7,7 @@ media_folder: "media/"
 collections:
   - name: "events"
     label: "Eventos"
-    folder: "src/data/events"
+    folder: "Data/events"
     create: true
     slug: "{{uuid}}"
     fields:
@@ -18,7 +18,7 @@ collections:
       - { name: "dateTime", label: "Data", widget: "datetime" }
   - name: "news"
     label: "Notícias"
-    folder: "src/data/news"
+    folder: "Data/news"
     create: true
     slug: "{{uuid}}"
     fields:

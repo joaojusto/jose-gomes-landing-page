@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Moment from 'moment';
+import moment from 'moment';
+import 'moment/locale/pt';
 import classNames from 'classnames';
 
-const moment = Moment;
-moment.locale('pt');
-
 import './index.scss';
+
+moment.locale('pt');
 
 import Navigation from '../../Navigation';
 

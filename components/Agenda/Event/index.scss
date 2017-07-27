@@ -11,7 +11,7 @@
 
   @include Breakpoint-mobileOnly {
     border: none;
-  };
+  }
 }
 
 .Event-backgroundWrapper {
@@ -30,7 +30,7 @@
 
   @include Breakpoint-mobileOnly {
     display: none;
-  };
+  }
 }
 
 .Event-backgroundMobile {
@@ -40,7 +40,7 @@
 
   @include Breakpoint-mobileOnly {
     display: block;
-  };
+  }
 }
 
 .Event-content {
@@ -65,7 +65,7 @@
     transform: translateY(-50%);
 
     padding: 25px 25px;
-  };
+  }
 }
 
 .Event-mobileContent {
@@ -75,7 +75,7 @@
     display: block;
 
     padding: 0 20px;
-  };
+  }
 }
 
 .Event-date {
@@ -87,7 +87,7 @@
     margin-bottom: 5px;
 
     font-size: 16px;
-  };
+  }
 }
 
 .Event-location {
@@ -97,7 +97,7 @@
 
   @include Breakpoint-mobileOnly {
     display: none;
-  };
+  }
 }
 
 .Event-locationMobile {
@@ -122,7 +122,7 @@
     margin-bottom: 0px;
 
     font-size: 21px;
-  };
+  }
 }
 
 .Event-description {
@@ -132,7 +132,7 @@
 
   @include Breakpoint-mobileOnly {
     display: none;
-  };
+  }
 }
 
 .Event-descriptionMobile {
@@ -158,20 +158,22 @@
 
   @include Breakpoint-mobileOnly {
     padding: 0 0px;
-  };
+  }
 }
 
 .Event-link {
+  position: absolute;
+
   display: block;
 
-  width: 20px;
-  height: 20px;
+  left: 50%;
+  bottom: 60px;
 
-  margin: 20px auto 0;
+  transform: translateX(-50%);
 
   cursor: pointer;
 
   @include Breakpoint-mobileOnly {
     margin-top: 10px;
-  };
+  }
 }

@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import EventsContainer from '../../containers/Events';
+import _ from 'lodash';
 
 import './index.scss';
 
 import Event from './Event';
 import Calendar from './Calendar';
 
+const findActiveEvent = events => {
+  const now = moment();
+
+  return _.findIndex(events, event => now.isSameOrBefore(event.dateTime));
+};
+
 class Agenda extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeEventIndex: 0 };
+    this.state = { activeEventIndex: findActiveEvent(props.events) };
   }
 
   onNext = () => {

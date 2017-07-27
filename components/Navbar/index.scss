@@ -8,6 +8,8 @@ $Navbar-button-padding-small: 5px;
 $Navbar-button-padding-base: 10px;
 
 .Navbar {
+  position: relative;
+
   padding: $Navbar-link-spacing-base;
 
   transition: background-color 0.3s ease-in;
@@ -101,8 +103,44 @@ $Navbar-button-padding-base: 10px;
   transition: all 0.3s linear;
 }
 
-.Navbar-overlay.is-open {
-  transform: translateX(0);
+.Navbar.is-overlay-open {
+  .Navbar-overlay {
+    transform: translateX(0);
+  }
+}
+
+.Navbar.is-scrolled.is-overlay-open {
+  .Navbar-background {
+    opacity: 0;
+  }
+}
+
+.Navbar-contentWrapper {
+  z-index: 2;
+}
+
+.Navbar-background {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #000724;
+
+  opacity: 0;
+
+  z-index: -1;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.Navbar.is-scrolled {
+  .Navbar-background {
+    opacity: 1;
+  }
 }
 
 .Navbar-languages {

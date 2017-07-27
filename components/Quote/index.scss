@@ -1,0 +1,14 @@
+@import '../color';
+@import '../typography';
+
+.Quote {
+  padding: 100px 0;
+
+  background-color: #000724;
+
+  color: $Color-white;
+  font-family: $Typography-font-family-serif;
+  font-size: 21px;
+  line-height: 100%;
+  text-align: center;
+}

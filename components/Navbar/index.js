@@ -30,37 +30,43 @@ class Navbar extends Component {
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
 
   render() {
-    const overlayClass = classNames({
-      'Navbar-overlay': true,
-      'is-open': this.state.mobileMenuOpen
+    const navbarClass = classNames({
+      Navbar: true,
+      'is-scrolled': this.props.isScrolled,
+      'is-overlay-open': this.state.mobileMenuOpen
     });
 
     return (
-      <div className="Navbar">
-        <div className={overlayClass}>{renderLinks(this.props.translate)}</div>
-        <div className="Navbar-content">
+      <div className={navbarClass}>
+        <div className="Navbar-overlay">
           {renderLinks(this.props.translate)}
-          <div className="Navbar-languages">
-            {this.props.availableLanguages.map(language => (
-              <a
-                key={language}
-                className={`Navbar-languageButton ${language ===
-                this.props.currentLanguage
-                  ? 'is-active'
-                  : ''}`}
-                onClick={() => this.props.changeLanguage(language)}
-              >
-                {language.toUpperCase()}
-              </a>
-            ))}
+        </div>
+        <div className="Navbar-contentWrapper">
+          <div className="Navbar-content">
+            {renderLinks(this.props.translate)}
+            <div className="Navbar-languages">
+              {this.props.availableLanguages.map(language => (
+                <a
+                  key={language}
+                  className={`Navbar-languageButton ${language ===
+                  this.props.currentLanguage
+                    ? 'is-active'
+                    : ''}`}
+                  onClick={() => this.props.changeLanguage(language)}
+                >
+                  {language.toUpperCase()}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="Navbar-mobileButton">
+            <Burger
+              isOpen={this.state.mobileMenuOpen}
+              onClick={this.onMobileMenuClick}
+            />
           </div>
         </div>
-        <div className="Navbar-mobileButton">
-          <Burger
-            isOpen={this.state.mobileMenuOpen}
-            onClick={this.onMobileMenuClick}
-          />
-        </div>
+        <div className="Navbar-background" />
       </div>
     );
   }

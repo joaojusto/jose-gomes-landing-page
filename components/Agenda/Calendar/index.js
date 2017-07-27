@@ -29,11 +29,9 @@ export default class Calendar extends Component {
 
   renderWeekDays() {
     return moment.weekdaysShort().map(weekDay =>
-      <div key={weekDay} className="Calendar-column">
-        <span className="Calendar-weekDay">
-          {weekDay}
-        </span>
-      </div>
+      <span className="Calendar-weekDay">
+        {weekDay}
+      </span>
     );
   }
 
@@ -66,14 +64,10 @@ export default class Calendar extends Component {
   }
 
   renderWeek(week) {
-    return week.map(day =>
-      <div key={day} className="Calendar-column">
-        {this.renderDay(day)}
-      </div>
-    );
+    return week.map(this.renderDay);
   }
 
-  renderDay(day) {
+  renderDay = day => {
     const { currentMonth } = this.state;
 
     const eventForDay = this.props.events.find(event => {
@@ -101,7 +95,7 @@ export default class Calendar extends Component {
         {day.date()}
       </span>
     );
-  }
+  };
 
   render() {
     const { currentMonth } = this.state;

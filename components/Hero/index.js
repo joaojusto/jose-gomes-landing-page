@@ -5,9 +5,8 @@ import './index.scss';
 import HeroMobileImage from './hero-mobile.jpg';
 import HeroDesktopImage from './hero-desktop.jpg';
 
-const Hero = ({ translate, currentLanguage }) => (
+const Hero = ({ translate }) => (
   <section className="Hero">
-    {currentLanguage}
     <div className="Hero-backgroundWrapper">
       <img className="Hero-mobileBackground" src={HeroMobileImage} />
       <img className="Hero-desktopBackground" src={HeroDesktopImage} />

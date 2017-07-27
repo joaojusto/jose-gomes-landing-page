@@ -1,7 +1,7 @@
 $Burger-width: 30px;
 $Burger-bar-count: 3;
 $Burger-height: 20px;
-$Burger-bar-color: #FFF;
+$Burger-bar-color: #fff;
 $Burger-bar-height: 3px;
 
 $Burger-bottom-bar-position: $Burger-height - $Burger-bar-height;
@@ -12,6 +12,8 @@ $Burger-midle-bar-position: ($Burger-height / 2) - ($Burger-bar-height / 2);
 
   width: $Burger-width;
   height: $Burger-height;
+
+  z-index: 3;
 }
 
 .Burger-bar {
@@ -44,7 +46,6 @@ $Burger-midle-bar-position: ($Burger-height / 2) - ($Burger-bar-height / 2);
 
 .Burger.is-open {
   .Burger-bar:nth-child(even) {
-
     transform: translateY($Burger-midle-bar-position) rotate(-45deg);
   }
 

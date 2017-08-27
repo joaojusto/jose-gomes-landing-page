@@ -11,12 +11,12 @@ const photos = [
 ].map(photo => require(photo));
 
 const tabs = {
-  images: 'images',
+  images: 'images'
 };
 
-export default class Galery extends Component {
-  constructor() {
-    super();
+class Galery extends Component {
+  constructor(props) {
+    super(props);
     this.state = { selectedPhoto: _.sample(photos), selectedTab: '' };
   }
 
@@ -44,7 +44,7 @@ export default class Galery extends Component {
 
     return (
       <section className="Galery" id="Galeria">
-        <h2 className="Galery-title">Galeria</h2>
+        <h2 className="Galery-title">{this.props.translate('galery.title')}</h2>
         {/* <div className="Galery-navigation">
           <a className="Galery-link is-selected">Imagens</a>
           <a className="Galery-link">Videos</a>
@@ -63,3 +63,5 @@ export default class Galery extends Component {
     );
   }
 }
+
+export default Galery;

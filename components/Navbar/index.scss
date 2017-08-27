@@ -1,6 +1,6 @@
-@import "../color";
-@import "../typography";
-@import "../breakpoint";
+@import '../color';
+@import '../typography';
+@import '../breakpoint';
 
 $Navbar-link-font-size: 18px;
 $Navbar-link-spacing-base: 56px;
@@ -103,4 +103,25 @@ $Navbar-button-padding-base: 10px;
 
 .Navbar-overlay.is-open {
   transform: translateX(0);
+}
+
+.Navbar-languages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Navbar-languageButton {
+  padding: 2.5px 0;
+
+  color: #979797;
+  text-align: center;
+  font-family: $Typography-font-family-sans;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.Navbar-languageButton.is-active {
+  color: $Color-white;
 }

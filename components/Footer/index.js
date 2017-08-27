@@ -4,10 +4,10 @@ import './index.scss';
 import TwitterLogo from './twitter.svg';
 import FacebookLogo from './facebook.svg';
 
-const Footer = () =>
+const Footer = ({ translate }) => (
   <section className="Footer" id="Contactar">
     <div className="Footer-column">
-      <h2 className="Footer-title">Contacto</h2>
+      <h2 className="Footer-title">{translate('contact.title')}</h2>
     </div>
     <div className="Footer-largeColumn">
       <div className="Footer-content">
@@ -30,6 +30,7 @@ const Footer = () =>
       </p>
     </div>
     <div className="Footer-column" />
-  </section>;
+  </section>
+);
 
 export default Footer;

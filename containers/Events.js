@@ -9,7 +9,7 @@ const events = requireAll(
 const EventsContainer = WrappedComponent =>
   class extends Component {
     render() {
-      return <WrappedComponent events={events} />;
+      return <WrappedComponent {...this.props} events={events} />;
     }
   };
 

@@ -10,8 +10,8 @@ import LinkIcon from './link.svg';
 import Navigation from '../Navigation';
 
 class News extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { currentNewsIndex: 0 };
   }
 
@@ -20,15 +20,9 @@ class News extends Component {
 
     return (
       <div className="News-item">
-        <h3 className="News-itemTitle">
-          {currentNews.title}
-        </h3>
-        <p className="News-itemDescription">
-          {currentNews.content}
-        </p>
-        <span className="News-itemDate">
-          {currentNews.dateTime}
-        </span>
+        <h3 className="News-itemTitle">{currentNews.title}</h3>
+        <p className="News-itemDescription">{currentNews.content}</p>
+        <span className="News-itemDate">{currentNews.dateTime}</span>
         <a className="News-itemLink" href={currentNews.url}>
           <img src={LinkIcon} />
         </a>
@@ -77,14 +71,12 @@ class News extends Component {
     return (
       <section className="News" id="Noticias">
         <div className="News-contentColumn">
-          <h2 className="News-title">Notícias</h2>
+          <h2 className="News-title">{this.props.translate('news.title')}</h2>
           {this.renderNews()}
           <div className="News-navigation">
             <Navigation onNext={this.onNext} onPrevious={this.onPrevious} />
           </div>
-          <div className="News-pagination">
-            {this.renderPagination()}
-          </div>
+          <div className="News-pagination">{this.renderPagination()}</div>
         </div>
         <div className="News-backgroundColumn">
           <img className="News-background" src={Background} />

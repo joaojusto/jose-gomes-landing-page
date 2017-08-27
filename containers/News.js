@@ -7,7 +7,7 @@ const news = requireAll(require.context('../Data/news', false, /^\.\/.*\.md$/));
 const NewsContainer = WrappedComponent =>
   class extends Component {
     render() {
-      return <WrappedComponent news={news} />;
+      return <WrappedComponent {...this.props} news={news} />;
     }
   };
 

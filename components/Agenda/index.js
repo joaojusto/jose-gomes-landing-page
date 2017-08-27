@@ -8,8 +8,8 @@ import Event from './Event';
 import Calendar from './Calendar';
 
 class Agenda extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { activeEventIndex: 0 };
   }
 
@@ -48,7 +48,7 @@ class Agenda extends Component {
   render() {
     return (
       <section className="Agenda" id="Agenda">
-        <h1 className="Agenda-title">Agenda</h1>
+        <h1 className="Agenda-title">{this.props.translate('agenda.title')}</h1>
         <div className="Agenda-content">
           <div className="Agenda-calendarContainer">
             <Calendar
@@ -56,9 +56,7 @@ class Agenda extends Component {
               onEventClick={this.onEventClick}
             />
           </div>
-          <div className="Agenda-eventContainer">
-            {this.renderEvent()}
-          </div>
+          <div className="Agenda-eventContainer">{this.renderEvent()}</div>
         </div>
       </section>
     );

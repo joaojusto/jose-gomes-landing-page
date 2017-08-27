@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Headroom from 'react-headroom';
 import Helmet from 'react-helmet';
 
@@ -20,23 +20,25 @@ import { config } from '../config';
 import '../components/reset.sass';
 import '../components/layout.scss';
 
-const Index = () => (
+import Translate from '../containers/translations';
+
+const Index = props => (
   <div className="Layout">
     <Helmet title={config.siteTitle} meta={meta} />
     <nav className="Layout-navbar">
       <Headroom disableInlineStyles>
-        <Navbar />
+        <Navbar {...props} />
       </Headroom>
     </nav>
     <div className="Layout-body">
-      <Hero />
-      <Agenda />
-      <News />
-      <Biography />
-      <Galery />
-      <Footer />
+      <Hero {...props} />
+      <Agenda {...props} />
+      <News {...props} />
+      <Biography {...props} />
+      <Galery {...props} />
+      <Footer {...props} />
     </div>
   </div>
 );
 
-export default Index;
+export default Translate(Index);

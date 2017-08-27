@@ -6,21 +6,23 @@ import './index.scss';
 import Burger from '../Burger';
 
 const LINKS = [
-  { label: 'Agenda', href: '#Agenda', className: 'Navbar-link' },
-  { label: 'Biografia', href: '#Biografia', className: 'Navbar-link' },
-  { label: 'Noticias', href: '#Noticias', className: 'Navbar-link' },
-  { label: 'Galeria', href: '#Galeria', className: 'Navbar-link' },
-  { label: 'Contactar', href: '#Contactar', className: 'Navbar-button' }
+  { label: 'navbar.agenda', href: '#Agenda', className: 'Navbar-link' },
+  { label: 'navbar.biography', href: '#Biografia', className: 'Navbar-link' },
+  { label: 'navbar.news', href: '#Noticias', className: 'Navbar-link' },
+  { label: 'navbar.gallery', href: '#Galeria', className: 'Navbar-link' },
+  { label: 'navbar.contact', href: '#Contactar', className: 'Navbar-button' }
 ];
 
-const renderLinks = () =>
-  LINKS.map(({ label, href, className }, key) =>
-    <a key={key} className={className} href={href}>{label}</a>
-  );
+const renderLinks = translate =>
+  LINKS.map(({ label, href, className }, key) => (
+    <a key={key} className={className} href={href}>
+      {translate(label)}
+    </a>
+  ));
 
-export default class Navbar extends Component {
-  constructor() {
-    super();
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
     this.state = { mobileMenuOpen: false };
   }
 
@@ -35,11 +37,23 @@ export default class Navbar extends Component {
 
     return (
       <div className="Navbar">
-        <div className={overlayClass}>
-          {renderLinks()}
-        </div>
+        <div className={overlayClass}>{renderLinks(this.props.translate)}</div>
         <div className="Navbar-content">
-          {renderLinks()}
+          {renderLinks(this.props.translate)}
+          <div className="Navbar-languages">
+            {this.props.availableLanguages.map(language => (
+              <a
+                key={language}
+                className={`Navbar-languageButton ${language ===
+                this.props.currentLanguage
+                  ? 'is-active'
+                  : ''}`}
+                onClick={() => this.props.changeLanguage(language)}
+              >
+                {language.toUpperCase()}
+              </a>
+            ))}
+          </div>
         </div>
         <div className="Navbar-mobileButton">
           <Burger
@@ -51,3 +65,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default Navbar;

@@ -1,0 +1,54 @@
+backend:
+  name: github
+  repo: joaojusto/jose-gomes-landing-page
+  branch: master
+
+media_folder: "media/"
+
+collections:
+  - name: "events"
+    label: "Eventos"
+    folder: "Data/events"
+    create: true
+    slug: "{{uuid}}"
+    filter:
+      field: language
+    fields:
+      - { name: "location", label: "Localização", widget: "string" }
+      - { name: "title", label: "Nome", widget: "string" }
+      - { name: "description", label: "Descrição", widget: "text" }
+      - { name: "url", label: "Link", widget: "string", required: false }
+      - { name: "dateTime", label: "Data", widget: "datetime" }
+      - {label: "Language", name: "language"}
+
+  - name: "news"
+    label: "Notícias"
+    folder: "Data/news"
+    create: true
+    slug: "{{uuid}}"
+    fields:
+      - { name: "url", label: "Link", widget: "string" }
+      - { name: "title", label: "Título", widget: "string" }
+      - { name: "description", label: "Descrição", widget: "text", required: false }
+      - { name: "dateTime", label: "Data", widget: "date" }
+  - name: "languages"
+    label: "Traduções"
+    folder: "Data/translations"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "lingua (en ou pt ou fr etc...)", widget: "string" }
+      - { name: "navbar.agenda", label: "link agenda", widget: "string" }
+      - { name: "navbar.biography", label: "link biografia", widget: "string" }
+      - { name: "navbar.news", label: "link noticias", widget: "string" }
+      - { name: "navbar.galery", label: "link galeria", widget: "string" }
+      - { name: "navbar.contact", label: "link contacto", widget: "string" }
+      - { name: "hero.subtitle", label: "maestro", widget: "string" }
+      - { name: "hero.title", label: "titulo entrada", widget: "string" }
+      - { name: "agenda.title", label: "Título agenda", widget: "string" }
+      - { name: "news.title", label: "Título noticias", widget: "string" }
+      - { name: "biography.title", label: "Título biografia", widget: "string" }
+      - { name: "biography.excerpt", label: "Execerto biografia", widget: "text" }
+      - { name: "biography.cta", label: "Butao download", widget: "string" }
+      - { name: "galery.title", label: "Título galeria", widget: "string" }
+      - { name: "contact.title", label: "Título contacto", widget: "string" }

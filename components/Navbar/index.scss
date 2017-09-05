@@ -117,6 +117,9 @@ $Navbar-button-padding-base: 10px;
 
 .Navbar-contentWrapper {
   z-index: 2;
+
+  display: flex;
+  justify-content: flex-end;
 }
 
 .Navbar-background {
@@ -147,6 +150,16 @@ $Navbar-button-padding-base: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  margin-left: 40px;
+
+  @include Breakpoint-mobileOnly {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin-right: 20px;
+  }
 }
 
 .Navbar-languageButton {
@@ -158,6 +171,10 @@ $Navbar-button-padding-base: 10px;
   font-size: 16px;
 
   cursor: pointer;
+
+  @include Breakpoint-mobileOnly {
+    margin: 0 20px;
+  }
 }
 
 .Navbar-languageButton.is-active {

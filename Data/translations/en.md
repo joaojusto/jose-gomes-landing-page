@@ -7,6 +7,7 @@ navbar.gallery: Gallery
 navbar.contact: Contact
 hero.subtitle: Conductor
 hero.title: José Eduardo Gomes
+quote: Múscia é partilha
 agenda.title: Agenda
 news.title: News
 biography.title: Biography

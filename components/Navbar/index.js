@@ -29,6 +29,21 @@ class Navbar extends Component {
   onMobileMenuClick = () =>
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
 
+  renderLanguages = () => {
+    return this.props.availableLanguages.map(language => (
+      <a
+        key={language}
+        className={`Navbar-languageButton ${language ===
+        this.props.currentLanguage
+          ? 'is-active'
+          : ''}`}
+        onClick={() => this.props.changeLanguage(language)}
+      >
+        {language.toUpperCase()}
+      </a>
+    ));
+  };
+
   render() {
     const navbarClass = classNames({
       Navbar: true,
@@ -44,21 +59,8 @@ class Navbar extends Component {
         <div className="Navbar-contentWrapper">
           <div className="Navbar-content">
             {renderLinks(this.props.translate)}
-            <div className="Navbar-languages">
-              {this.props.availableLanguages.map(language => (
-                <a
-                  key={language}
-                  className={`Navbar-languageButton ${language ===
-                  this.props.currentLanguage
-                    ? 'is-active'
-                    : ''}`}
-                  onClick={() => this.props.changeLanguage(language)}
-                >
-                  {language.toUpperCase()}
-                </a>
-              ))}
-            </div>
           </div>
+          <div className="Navbar-languages">{this.renderLanguages()}</div>
           <div className="Navbar-mobileButton">
             <Burger
               isOpen={this.state.mobileMenuOpen}

@@ -2,4 +2,6 @@ import React from 'react';
 
 import './index.scss';
 
-export default () => <section className="Quote">"Múscia é partilha"</section>;
+export default ({ translate }) => (
+  <section className="Quote">"{translate('quote')}"</section>
+);

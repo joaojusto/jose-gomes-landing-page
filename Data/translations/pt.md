@@ -7,6 +7,7 @@ navbar.gallery: Galeria
 navbar.contact: Contacto
 hero.subtitle: Maestro
 hero.title: José Eduardo Gomes
+quote: Múscia é partilha
 agenda.title: Agenda
 news.title: Notícias
 biography.title: Biografia

@@ -7,16 +7,19 @@ navbar.gallery: Gallery
 navbar.contact: Contact
 hero.subtitle: Conductor
 hero.title: José Eduardo Gomes
-quote: Múscia é partilha
+quote: Music is sharing
 agenda.title: Agenda
 news.title: News
 biography.title: Biography
 biography.excerpt: >-
-  José Eduardo é maestro titular da Orquestra Clássica do Centro e Orquestra
-  Clássica da FEUP. Recentemente foi laureado com o 2º Prémio no Concurso Prémio
-  Jovens Músicos, na categoria de Direção de Orquestra, tendo obtido igualmente
-  o Prémio da Orquestra.
+  José Eduardo is principal conductor of the Classical Orchestra of the Center
+  in Portugal, and of the Classical Orchestra of FEUP.
+
+  Recently, he was distinguished in the national competition “Prémio Jovens
+  Músicos” in orchestral conducting, with the 2nd prize and the special
+  Orchestra Prize. 
 biography.cta: Download Biography
 galery.title: Gallery
 contact.title: Contact
 ---
+

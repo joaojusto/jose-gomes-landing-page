@@ -45,6 +45,7 @@ collections:
       - { name: "navbar.contact", label: "link contacto", widget: "string" }
       - { name: "hero.subtitle", label: "maestro", widget: "string" }
       - { name: "hero.title", label: "titulo entrada", widget: "string" }
+      - { name: "quote", label: "Citaçao", widget: "string" }
       - { name: "agenda.title", label: "Título agenda", widget: "string" }
       - { name: "news.title", label: "Título noticias", widget: "string" }
       - { name: "biography.title", label: "Título biografia", widget: "string" }

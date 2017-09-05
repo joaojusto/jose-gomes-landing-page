@@ -14,16 +14,14 @@ class Admin extends React.Component {
           />
           <title>Content Manager</title>
           <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
             rel="stylesheet"
-            href="https://unpkg.com/netlify-cms@~0.4/dist/cms.css"
+            type="text/css"
           />
+          <link rel="stylesheet" href="/admin/cms.css" />
         </Helmet>
         <div>
-          <script src="https://unpkg.com/netlify-cms@~0.4/dist/cms.js" />
-          <link
-            rel="stylesheet"
-            href="https://unpkg.com/netlify-cms@~0.4/dist/cms.css"
-          />
+          <script src="/admin/cms.js" />
         </div>
       </div>
     );

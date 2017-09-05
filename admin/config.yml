@@ -41,7 +41,7 @@ collections:
       - { name: "navbar.agenda", label: "link agenda", widget: "string" }
       - { name: "navbar.biography", label: "link biografia", widget: "string" }
       - { name: "navbar.news", label: "link noticias", widget: "string" }
-      - { name: "navbar.galery", label: "link galeria", widget: "string" }
+      - { name: "navbar.gallery", label: "link galeria", widget: "string" }
       - { name: "navbar.contact", label: "link contacto", widget: "string" }
       - { name: "hero.subtitle", label: "maestro", widget: "string" }
       - { name: "hero.title", label: "titulo entrada", widget: "string" }

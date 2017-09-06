@@ -17,9 +17,10 @@ biography.excerpt: >-
   Jovens Músicos, na categoria de Direção de Orquestra, tendo obtido igualmente
   o Prémio da Orquestra.
 biography.cta: Download Biografia
-biography.file: /Data/media/bio_pt.pdf
+biography.file: /pages/bio_pt.pdf
 galery.title: Galeria
 contact.title: Contacto
 ---
+
 
 

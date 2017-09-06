@@ -21,7 +21,13 @@ class News extends Component {
     return (
       <div className="News-item">
         <h3 className="News-itemTitle">{currentNews.title}</h3>
-        <p className="News-itemDescription">{currentNews.content}</p>
+        <p className="News-itemDescription">
+          {this.props.currentLanguage === 'en' ? (
+            currentNews.descriptionEn
+          ) : (
+            currentNews.description
+          )}
+        </p>
         <span className="News-itemDate">{currentNews.dateTime}</span>
         <a className="News-itemLink" href={currentNews.url}>
           <img src={LinkIcon} />

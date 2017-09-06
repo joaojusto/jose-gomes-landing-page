@@ -39,7 +39,12 @@ class Agenda extends Component {
     const eventData = this.props.events[activeEventIndex];
 
     return (
-      <Event {...eventData} onPrevious={this.onPrevious} onNext={this.onNext} />
+      <Event
+        {...this.props}
+        {...eventData}
+        onPrevious={this.onPrevious}
+        onNext={this.onNext}
+      />
     );
   }
 
@@ -58,10 +63,7 @@ class Agenda extends Component {
         <h1 className="Agenda-title">{this.props.translate('agenda.title')}</h1>
         <div className="Agenda-content">
           <div className="Agenda-calendarContainer">
-            <Calendar
-              events={this.props.events}
-              onEventClick={this.onEventClick}
-            />
+            <Calendar {...this.props} onEventClick={this.onEventClick} />
           </div>
           <div className="Agenda-eventContainer">{this.renderEvent()}</div>
         </div>

@@ -11,7 +11,7 @@ import LocationIcon from './location.svg';
 import Navigation from '../../Navigation';
 import LinkIcon from './link.svg';
 
-const Event = props =>
+const Event = props => (
   <div className="Event">
     <div className="Event-backgroundWrapper">
       <img className="Event-background" src={Background} />
@@ -25,31 +25,36 @@ const Event = props =>
             'DD MMMM YYYY - HH:mm'
           )}
         </div>
-        <div className="Event-location">
-          {props.location}
-        </div>
-        <div className="Event-name">
-          {props.title}
-        </div>
+        <div className="Event-location">{props.location}</div>
+        <div className="Event-name">{props.title}</div>
         <div className="Event-description">
-          {props.description}
+          {props.currentLanguage === 'en' ? (
+            props.descriptionEn
+          ) : (
+            props.description
+          )}
         </div>
-        {props.url
-          ? <a className="Event-link" href={props.url}>
-              <img src={LinkIcon} />
-            </a>
-          : null}
+        {props.url ? (
+          <a className="Event-link" href={props.url}>
+            <img src={LinkIcon} />
+          </a>
+        ) : null}
       </div>
     </div>
     <div className="Event-mobileContent">
       <div className="Event-descriptionMobile">
-        {props.description}
+        {props.currentLanguage === 'en' ? (
+          props.descriptionEn
+        ) : (
+          props.description
+        )}
       </div>
       <div className="Event-locationMobile">
         <img src={LocationIcon} />
         {props.location}
       </div>
     </div>
-  </div>;
+  </div>
+);
 
 export default Event;

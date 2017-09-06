@@ -5,8 +5,6 @@ import classNames from 'classnames';
 
 import './index.scss';
 
-moment.locale('pt');
-
 import Navigation from '../../Navigation';
 
 export default class Calendar extends Component {
@@ -28,11 +26,9 @@ export default class Calendar extends Component {
   onEventClick = event => () => this.props.onEventClick(event);
 
   renderWeekDays() {
-    return moment.weekdaysShort().map(weekDay =>
-      <span className="Calendar-weekDay">
-        {weekDay}
-      </span>
-    );
+    return moment
+      .weekdaysShort()
+      .map(weekDay => <span className="Calendar-weekDay">{weekDay}</span>);
   }
 
   renderMonth() {
@@ -56,11 +52,11 @@ export default class Calendar extends Component {
       weeks.push(week);
     }
 
-    return weeks.map((week, index) =>
+    return weeks.map((week, index) => (
       <div key={index} className="Calendar-row">
         {this.renderWeek(week)}
       </div>
-    );
+    ));
   }
 
   renderWeek(week) {
@@ -90,15 +86,12 @@ export default class Calendar extends Component {
       'is-disabled': day.month() !== currentMonth.month()
     });
 
-    return (
-      <span className={className}>
-        {day.date()}
-      </span>
-    );
+    return <span className={className}>{day.date()}</span>;
   };
 
   render() {
     const { currentMonth } = this.state;
+    moment.locale(this.props.currentLanguage);
 
     return (
       <div className="Calendar">
@@ -107,16 +100,12 @@ export default class Calendar extends Component {
             <Navigation onNext={this.onNext} onPrevious={this.onPrevious} />
           </div>
           <div className="Calendar-currentMonth">
-            {currentMonth.format('MMMM')}
+            {currentMonth.locale(this.props.currentLanguage).format('MMMM')}
           </div>
-          <div className="Calendar-currentYear">
-            {currentMonth.year()}
-          </div>
+          <div className="Calendar-currentYear">{currentMonth.year()}</div>
         </div>
         <div className="Calendar-content">
-          <div className="Calendar-row">
-            {this.renderWeekDays()}
-          </div>
+          <div className="Calendar-row">{this.renderWeekDays()}</div>
           {this.renderMonth()}
         </div>
       </div>

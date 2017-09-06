@@ -3,7 +3,7 @@ backend:
   repo: joaojusto/jose-gomes-landing-page
   branch: master
 
-media_folder: "media/"
+media_folder: "pages/"
 
 collections:
   - name: "events"
@@ -11,15 +11,13 @@ collections:
     folder: "Data/events"
     create: true
     slug: "{{uuid}}"
-    filter:
-      field: language
     fields:
       - { name: "location", label: "Localização", widget: "string" }
       - { name: "title", label: "Nome", widget: "string" }
       - { name: "description", label: "Descrição", widget: "text" }
+      - { name: "descriptionEn", label: "Descrição En", widget: "text" }
       - { name: "url", label: "Link", widget: "string", required: false }
       - { name: "dateTime", label: "Data", widget: "datetime" }
-      - {label: "Language", name: "language"}
 
   - name: "news"
     label: "Notícias"
@@ -30,6 +28,7 @@ collections:
       - { name: "url", label: "Link", widget: "string" }
       - { name: "title", label: "Título", widget: "string" }
       - { name: "description", label: "Descrição", widget: "text", required: false }
+      - { name: "descriptionEn", label: "Descrição En", widget: "text", required: false }
       - { name: "dateTime", label: "Data", widget: "date" }
   - name: "languages"
     label: "Traduções"
@@ -49,7 +48,8 @@ collections:
       - { name: "agenda.title", label: "Título agenda", widget: "string" }
       - { name: "news.title", label: "Título noticias", widget: "string" }
       - { name: "biography.title", label: "Título biografia", widget: "string" }
-      - { name: "biography.excerpt", label: "Execerto biografia", widget: "text" }
-      - { name: "biography.cta", label: "Butao download", widget: "string" }
+      - { name: "biography.excerpt", label: "Excerto biografia", widget: "text" }
+      - { name: "biography.cta", label: "Botão download", widget: "string" }
+      - { name: "biography.file", label: "PDF biografia (Ficheiro deve-se chamar bio_pt.pdf ou bio_en.pdf)", widget: "file" }
       - { name: "galery.title", label: "Título galeria", widget: "string" }
       - { name: "contact.title", label: "Título contacto", widget: "string" }

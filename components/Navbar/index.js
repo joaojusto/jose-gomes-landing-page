@@ -55,12 +55,13 @@ class Navbar extends Component {
       <div className={navbarClass}>
         <div className="Navbar-overlay">
           {renderLinks(this.props.translate)}
+          <div className="Navbar-languages">{this.renderLanguages()}</div>
         </div>
         <div className="Navbar-contentWrapper">
           <div className="Navbar-content">
             {renderLinks(this.props.translate)}
+            <div className="Navbar-languages">{this.renderLanguages()}</div>
           </div>
-          <div className="Navbar-languages">{this.renderLanguages()}</div>
           <div className="Navbar-mobileButton">
             <Burger
               isOpen={this.state.mobileMenuOpen}

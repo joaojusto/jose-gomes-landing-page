@@ -5,7 +5,7 @@ import './index.scss';
 import Background from './background.jpg';
 import BackgroundMobile from './background-mobile.jpg';
 
-const Biography = ({ translate }) => (
+const Biography = ({ translate, currentLanguage }) => (
   <section className="Biography" id="Biografia">
     <h2 className="Biography-title">{translate('biography.title')}</h2>
     <div className="Biography-backgroundColumn">
@@ -17,7 +17,11 @@ const Biography = ({ translate }) => (
         <p>{translate('biography.excerpt')}</p>
 
         <div className="Biography-actions">
-          <a href="/bio_pt.pdf" target="_blank" className="Biography-button">
+          <a
+            href={`/bio_${currentLanguage}.pdf`}
+            target="_blank"
+            className="Biography-button"
+          >
             Download Biografia
           </a>
         </div>

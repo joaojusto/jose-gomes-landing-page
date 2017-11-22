@@ -43,8 +43,6 @@ export default class Calendar extends Component {
     let weeks = [];
     let currentDay = startOfMonth.clone().startOf('isoWeek');
 
-    console.log(endOfMonth.isoWeek(), startOfMonth.isoWeek());
-
     while (weeks.length <= numberOfWeeks) {
       let week = [];
       let currentWeek = currentDay.isoWeek();
@@ -56,8 +54,6 @@ export default class Calendar extends Component {
 
       weeks.push(week);
     }
-
-    console.log(weeks[0]);
 
     if (!weeks[0]) return null;
 

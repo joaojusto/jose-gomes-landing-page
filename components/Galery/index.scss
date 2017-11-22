@@ -43,12 +43,17 @@ $Galery-thumbnail-size-mobile: 70px;
   flex: 1;
 }
 
+.Galery-videoSection,
 .Galery-photoSection {
   flex: 1;
 
   @include Breakpoint-mobileOnly {
     margin-bottom: 20px;
   }
+}
+
+.Galery-videoSection {
+  min-height: 400px;
 }
 
 .Galery-navigation {
@@ -58,7 +63,7 @@ $Galery-thumbnail-size-mobile: 70px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
-  };
+  }
 }
 
 .Galery-link {
@@ -149,4 +154,6 @@ $Galery-thumbnail-size-mobile: 70px;
 
 .Galery-photoPreview {
   width: 100%;
+
+  cursor: pointer;
 }

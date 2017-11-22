@@ -17,11 +17,10 @@ biography.excerpt: >-
 
   Recently, he was distinguished in the national competition “Prémio Jovens
   Músicos” in orchestral conducting, with the 2nd prize and the special
-  Orchestra Prize. 
+  Orchestra Prize.
 biography.cta: Download Biography
 galery.title: Gallery
 contact.title: Contact
+galery.images: Images
+galery.videos: Videos
 ---
-
-
-

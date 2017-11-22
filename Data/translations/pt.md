@@ -20,6 +20,6 @@ biography.cta: Download Biografia
 biography.file: /pages/bio_pt.pdf
 galery.title: Galeria
 contact.title: Contacto
-galery.images: Images
+galery.images: Imagens
 galery.videos: Videos
 ---

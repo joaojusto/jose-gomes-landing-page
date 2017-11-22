@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import moment from 'moment';
 import 'moment/locale/pt';
 import classNames from 'classnames';
@@ -25,26 +26,30 @@ export default class Calendar extends Component {
 
   onEventClick = event => () => this.props.onEventClick(event);
 
-  renderWeekDays() {
-    return moment
-      .weekdaysShort()
-      .map(weekDay => <span className="Calendar-weekDay">{weekDay}</span>);
+  renderWeekDays(firstWeek) {
+    return firstWeek.map(weekDay => (
+      <span key={weekDay.format('ddd')} className="Calendar-weekDay">
+        {weekDay.format('ddd')}
+      </span>
+    ));
   }
 
   renderMonth() {
     const endOfMonth = this.state.currentMonth.clone().endOf('month');
     const startOfMonth = this.state.currentMonth.clone().startOf('month');
 
-    const numberOfWeeks = endOfMonth.week() - startOfMonth.week();
+    const numberOfWeeks = endOfMonth.isoWeek() - startOfMonth.isoWeek();
 
     let weeks = [];
-    let currentDay = startOfMonth.clone().startOf('week');
+    let currentDay = startOfMonth.clone().startOf('isoWeek');
+
+    console.log(endOfMonth.isoWeek(), startOfMonth.isoWeek());
 
     while (weeks.length <= numberOfWeeks) {
       let week = [];
-      let currentWeek = currentDay.week();
+      let currentWeek = currentDay.isoWeek();
 
-      while (currentWeek === currentDay.week()) {
+      while (currentWeek === currentDay.isoWeek()) {
         week.push(currentDay.clone());
         currentDay.add(1, 'day');
       }
@@ -52,11 +57,21 @@ export default class Calendar extends Component {
       weeks.push(week);
     }
 
-    return weeks.map((week, index) => (
-      <div key={index} className="Calendar-row">
-        {this.renderWeek(week)}
+    console.log(weeks[0]);
+
+    if (!weeks[0]) return null;
+
+    return (
+      <div className="Calendar-content">
+        <div className="Calendar-row">{this.renderWeekDays(weeks[0])}</div>
+        {weeks.map((week, index) => (
+          <div key={index} className="Calendar-row">
+            {this.renderWeek(week)}
+          </div>
+        ))}
       </div>
-    ));
+    );
+    return;
   }
 
   renderWeek(week) {
@@ -74,6 +89,7 @@ export default class Calendar extends Component {
     if (eventForDay)
       return (
         <span
+          key={day.date()}
           className="Calendar-dayWithEvent"
           onClick={this.onEventClick(eventForDay)}
         >
@@ -86,8 +102,19 @@ export default class Calendar extends Component {
       'is-disabled': day.month() !== currentMonth.month()
     });
 
-    return <span className={className}>{day.date()}</span>;
+    return (
+      <span key={day.date()} className={className}>
+        {day.date()}
+      </span>
+    );
   };
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.props.currentLanguage !== nextProps.currentLanguage ||
+      !_.isEqual(this.state, nextState)
+    );
+  }
 
   render() {
     const { currentMonth } = this.state;
@@ -104,10 +131,7 @@ export default class Calendar extends Component {
           </div>
           <div className="Calendar-currentYear">{currentMonth.year()}</div>
         </div>
-        <div className="Calendar-content">
-          <div className="Calendar-row">{this.renderWeekDays()}</div>
-          {this.renderMonth()}
-        </div>
+        {this.renderMonth()}
       </div>
     );
   }

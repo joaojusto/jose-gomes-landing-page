@@ -21,18 +21,16 @@ const Event = props => (
       </div>
       <div className="Event-content">
         <div className="Event-date">
-          {moment(props.dateTime, 'MM-DD-YYYY h:mm a').format(
+          {moment(props.dateTime, 'MM/DD/YYYY kk:mm A').format(
             'DD MMMM YYYY - HH:mm'
           )}
         </div>
         <div className="Event-location">{props.location}</div>
         <div className="Event-name">{props.title}</div>
         <div className="Event-description">
-          {props.currentLanguage === 'en' ? (
-            props.descriptionEn
-          ) : (
-            props.description
-          )}
+          {props.currentLanguage === 'en'
+            ? props.descriptionEn
+            : props.description}
         </div>
         {props.url ? (
           <a className="Event-link" href={props.url}>
@@ -43,11 +41,9 @@ const Event = props => (
     </div>
     <div className="Event-mobileContent">
       <div className="Event-descriptionMobile">
-        {props.currentLanguage === 'en' ? (
-          props.descriptionEn
-        ) : (
-          props.description
-        )}
+        {props.currentLanguage === 'en'
+          ? props.descriptionEn
+          : props.description}
       </div>
       <div className="Event-locationMobile">
         <img src={LocationIcon} />

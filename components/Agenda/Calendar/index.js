@@ -78,8 +78,9 @@ export default class Calendar extends Component {
     const { currentMonth } = this.state;
 
     const eventForDay = this.props.events.find(event => {
-      const eventDate = moment(event.dateTime).endOf('day');
-      return day.endOf('day').isSame(event.dateTime, 'day');
+      const eventDate = moment(event.dateTime, 'MM/DD/YYYY kk:mm A');
+
+      return day.isSame(eventDate, 'day');
     });
 
     if (eventForDay)

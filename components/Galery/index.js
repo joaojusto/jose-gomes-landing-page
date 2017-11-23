@@ -129,13 +129,10 @@ class Galery extends Component {
     switch (this.state.selectedTab) {
       case TABS.images:
         return this.photosTab();
-        break;
       case TABS.videos:
         return this.videosTab();
-        break;
       default:
         return null;
-        break;
     }
   };
 

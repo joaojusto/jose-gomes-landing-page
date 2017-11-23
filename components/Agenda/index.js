@@ -11,12 +11,22 @@ import Calendar from './Calendar';
 const findActiveEvent = events => {
   const now = moment();
 
-  return _.findIndex(events, event => now.isSameOrBefore(event.dateTime));
+  return _.chain(events)
+    .sortBy(
+      event =>
+        now.valueOf() - moment(event.dateTime, 'MM/DD/YYYY kk:mm A').valueOf()
+    )
+    .reverse()
+    .findLastIndex(event =>
+      now.isSameOrBefore(moment(event.dateTime, 'MM/DD/YYYY kk:mm A'), 'day')
+    )
+    .value();
 };
 
 class Agenda extends Component {
   constructor(props) {
     super(props);
+
     this.state = { activeEventIndex: findActiveEvent(props.events) };
   }
 
@@ -50,7 +60,9 @@ class Agenda extends Component {
 
   onEventClick = selectedEvent => {
     const foundEvent = this.props.events.find(event =>
-      moment(event.dateTime).isSame(selectedEvent.dateTime)
+      moment(event.dateTime, 'MM/DD/YYYY kk:mm A').isSame(
+        moment(selectedEvent.dateTime, 'MM/DD/YYYY kk:mm A')
+      )
     );
     const eventIndex = this.props.events.indexOf(foundEvent);
 

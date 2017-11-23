@@ -8,19 +8,20 @@ import './index.scss';
 import Event from './Event';
 import Calendar from './Calendar';
 
-const findActiveEvent = events => {
-  const now = moment();
-
-  return _.chain(events)
+const sortEvents = events =>
+  _.chain(events)
     .sortBy(
       event =>
         now.valueOf() - moment(event.dateTime, 'MM/DD/YYYY kk:mm A').valueOf()
     )
-    .reverse()
-    .findLastIndex(event =>
-      now.isSameOrBefore(moment(event.dateTime, 'MM/DD/YYYY kk:mm A'), 'day')
-    )
     .value();
+
+const findActiveEvent = events => {
+  const now = moment();
+
+  return _.findIndex(sortEvents(events), event =>
+    now.isSameOrBefore(moment(event.dateTime, 'MM/DD/YYYY kk:mm A'), 'day')
+  );
 };
 
 class Agenda extends Component {
@@ -46,7 +47,8 @@ class Agenda extends Component {
 
   renderEvent() {
     const { activeEventIndex } = this.state;
-    const eventData = this.props.events[activeEventIndex];
+
+    const eventData = sortEvents(this.props.events)[activeEventIndex];
 
     return (
       <Event

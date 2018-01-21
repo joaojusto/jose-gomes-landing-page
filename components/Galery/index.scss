@@ -112,7 +112,7 @@ $Galery-thumbnail-size-mobile: 70px;
   @include Breakpoint-mobileOnly {
     margin: 0 auto;
 
-    max-width: (3 * $Galery-thumbnail-size-mobile) + 90px;
+    max-width: 100%;
   }
 }
 
@@ -138,17 +138,12 @@ $Galery-thumbnail-size-mobile: 70px;
   }
 
   @include Breakpoint-mobileOnly {
-    width: calc((100% / 3) - 30px);
-    height: auto;
+    width: $Galery-thumbnail-size-mobile;
+    height: $Galery-thumbnail-size-mobile;
 
     margin: 15px;
-    padding-bottom: calc((100% / 3) - 30px);
 
     transition: none;
-
-    &.is-selected {
-      padding-bottom: calc((100% / 3) - 38px);
-    }
   }
 }
 

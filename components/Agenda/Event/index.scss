@@ -1,6 +1,6 @@
-@import "../../color";
-@import "../../typography";
-@import "../../breakpoint";
+@import '../../color';
+@import '../../typography';
+@import '../../breakpoint';
 
 .Event {
   max-width: 840px;
@@ -64,7 +64,7 @@
 
     transform: translateY(-50%);
 
-    padding: 25px 25px;
+    padding: 10px 10px;
   }
 }
 
@@ -174,6 +174,6 @@
   cursor: pointer;
 
   @include Breakpoint-mobileOnly {
-    margin-top: 10px;
+    bottom: -20px;
   }
 }

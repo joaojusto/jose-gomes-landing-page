@@ -67,7 +67,6 @@ export default class Calendar extends Component {
         ))}
       </div>
     );
-    return;
   }
 
   renderWeek(week) {
@@ -78,7 +77,7 @@ export default class Calendar extends Component {
     const { currentMonth } = this.state;
 
     const eventForDay = this.props.events.find(event => {
-      const eventDate = moment(event.dateTime, 'MM/DD/YYYY kk:mm A');
+      const eventDate = moment(event.dateTime);
 
       return day.isSame(eventDate, 'day');
     });
@@ -96,7 +95,7 @@ export default class Calendar extends Component {
 
     const className = classNames({
       'Calendar-day': true,
-      'is-disabled': day.month() !== currentMonth.month()
+      'is-disabled': day.month() !== currentMonth.month(),
     });
 
     return (

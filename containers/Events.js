@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import chrono from 'chrono-node';
 
 const requireAll = requireContext => requireContext.keys().map(requireContext);
 
-const events = _.sortBy(
+const events = _.chain(
   requireAll(require.context('../Data/events', false, /^\.\/.*\.md$/)),
-  'dateTime'
-);
+)
+  .map(event => ({ ...event, dateTime: chrono.parseDate(event.dateTime) }))
+  .sortBy('dateTime')
+  .value();
 
 const EventsContainer = WrappedComponent =>
   class extends Component {

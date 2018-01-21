@@ -8,19 +8,19 @@ import './index.scss';
 import Event from './Event';
 import Calendar from './Calendar';
 
-const sortEvents = events =>
-  _.chain(events)
-    .sortBy(
-      event =>
-        now.valueOf() - moment(event.dateTime, 'MM/DD/YYYY kk:mm A').valueOf()
-    )
+const sortEvents = events => {
+  const now = moment();
+
+  return _.chain(events)
+    .sortBy('dateTime')
     .value();
+};
 
 const findActiveEvent = events => {
   const now = moment();
 
-  return _.findIndex(sortEvents(events), event =>
-    now.isSameOrBefore(moment(event.dateTime, 'MM/DD/YYYY kk:mm A'), 'day')
+  return _.find(sortEvents(events), event =>
+    now.isSameOrBefore(moment(event.dateTime), 'day'),
   );
 };
 
@@ -28,48 +28,47 @@ class Agenda extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { activeEventIndex: findActiveEvent(props.events) };
+    let events = sortEvents(props.events);
+
+    this.state = { events, activeEvent: findActiveEvent(events) };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ events: sortEvents(nextProps.events) });
+  }
+
+  get activeEventIndex() {
+    return _.indexOf(this.state.events, this.state.activeEvent);
   }
 
   onNext = () => {
-    const { activeEventIndex } = this.state;
-
-    if (activeEventIndex < this.props.events.length - 1)
-      this.setState({ activeEventIndex: activeEventIndex + 1 });
+    if (this.activeEventIndex < this.state.events.length - 1)
+      this.setState({
+        activeEvent: this.state.events[this.activeEventIndex + 1],
+      });
   };
 
   onPrevious = () => {
-    const { activeEventIndex } = this.state;
-
-    if (activeEventIndex > 0)
-      this.setState({ activeEventIndex: activeEventIndex - 1 });
+    if (this.activeEventIndex > 0)
+      this.setState({
+        activeEvent: this.state.events[this.activeEventIndex - 1],
+      });
   };
 
-  renderEvent() {
-    const { activeEventIndex } = this.state;
+  onEventClick = selectedEvent => this.setState({ activeEvent: selectedEvent });
 
-    const eventData = sortEvents(this.props.events)[activeEventIndex];
+  renderEvent() {
+    const { activeEvent } = this.state;
 
     return (
       <Event
         {...this.props}
-        {...eventData}
-        onPrevious={this.onPrevious}
+        {...activeEvent}
         onNext={this.onNext}
+        onPrevious={this.onPrevious}
       />
     );
   }
-
-  onEventClick = selectedEvent => {
-    const foundEvent = this.props.events.find(event =>
-      moment(event.dateTime, 'MM/DD/YYYY kk:mm A').isSame(
-        moment(selectedEvent.dateTime, 'MM/DD/YYYY kk:mm A')
-      )
-    );
-    const eventIndex = this.props.events.indexOf(foundEvent);
-
-    this.setState({ activeEventIndex: eventIndex });
-  };
 
   render() {
     return (

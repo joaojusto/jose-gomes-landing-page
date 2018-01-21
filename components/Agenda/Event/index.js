@@ -21,9 +21,7 @@ const Event = props => (
       </div>
       <div className="Event-content">
         <div className="Event-date">
-          {moment(props.dateTime, 'MM/DD/YYYY kk:mm A').format(
-            'DD MMMM YYYY - HH:mm'
-          )}
+          {moment(props.dateTime).format('DD MMMM YYYY - HH:mm')}
         </div>
         <div className="Event-location">{props.location}</div>
         <div className="Event-name">{props.title}</div>

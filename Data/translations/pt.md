@@ -20,8 +20,9 @@ biography.excerpt: >-
   Músicos, na categoria de Direção de Orquestra, tendo obtido igualmente o
   Prémio da Orquestra.
 biography.cta: Download Biografia
-biography.file: /pages/bio_pt.pdf
+biography.file: /pages/Bio_PT.pdf
 galery.title: Galeria
 contact.title: Contacto
 ---
+
 

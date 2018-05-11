@@ -27,10 +27,11 @@ biography.excerpt: >-
 
   Finalist in the “1º Concorso Citta di Brescia Giancarlo Facchinetti” (Italy).
 biography.cta: Download Biography
-biography.file: /pages/Bio_ENG.pdf
+biography.file: /pages/bio_en.pdf
 galery.title: Gallery
 contact.title: Contact
 ---
+
 
 
 

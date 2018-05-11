@@ -14,16 +14,22 @@ agenda.title: Agenda
 news.title: News
 biography.title: Biography
 biography.excerpt: >-
-  José Eduardo is principal conductor of the Orquestra Clássica do Centro,
-  associate conductor of the Orquestra Clássica do Sul and principal conductor
-  of the Orquestra Clássica da FEUP, in Portugal.
+  José Eduardo is Principal Conductor of the Orquestra Clássica do Centro
+  (Coimbra, Portugal), Associate Conductor of the Orquestra Clássica do Sul
+  (Faro, Portugal) and Principal Conductor of the Orquestra Clássica da FEUP
+  (Porto, Portugal).
 
   Recently, he was distinguished in the national competition “Prémio Jovens
-  Músicos” in orchestral conducting, with the 2nd prize and the special
-  Orchestra Prize.
+  Músicos” in
+
+  orchestral conducting, with the 2nd prize and the special Orchestra Prize, and
+  also Semi
+
+  Finalist in the “1º Concorso Citta di Brescia Giancarlo Facchinetti” (Italy).
 biography.cta: Download Biography
 biography.file: /pages/Biography ENG.pdf
 galery.title: Gallery
 contact.title: Contact
 ---
+
 

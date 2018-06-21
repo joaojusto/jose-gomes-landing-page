@@ -38,7 +38,9 @@ export default class Calendar extends Component {
     const endOfMonth = this.state.currentMonth.clone().endOf('month');
     const startOfMonth = this.state.currentMonth.clone().startOf('month');
 
-    const numberOfWeeks = endOfMonth.isoWeek() - startOfMonth.isoWeek();
+    let numberOfWeeks = Math.round(endOfMonth.diff(startOfMonth, 'day') / 7);
+
+    if (startOfMonth.isoWeekday() >= 6) numberOfWeeks += 1;
 
     let weeks = [];
     let currentDay = startOfMonth.clone().startOf('isoWeek');

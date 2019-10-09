@@ -1,6 +1,4 @@
 ---
-galery.images: Images
-galery.videos: Videos
 title: en
 navbar.agenda: Agenda
 navbar.biography: Biography
@@ -13,23 +11,23 @@ quote: Music is sharing
 agenda.title: Agenda
 news.title: News
 biography.title: Biography
-biography.excerpt: >-
-  José Eduardo is Associate Conductor of the Orquestra Clássica do Sul (Faro,
-  Portugal) and Principal Conductor of the Orquestra Clássica da FEUP (Porto,
-  Portugal).
+biography.excerpt: >
+  José Eduardo is Principal Conductor of FEUP Orchestra (Porto – Portugal). He’s
+  also Professor in the Porto Music University, as a Principal Conductor of the
+  School Orchestra.
 
-  Recently, he was distinguished in the national competition “Prémio Jovens
-  Músicos” in
-
-  orchestral conducting, with the 2nd prize and the special Orchestra Prize, and
-  also Semi
-
-  Finalist in the “1º Concorso Citta di Brescia Giancarlo Facchinetti” (Italy).
+  He was Principal Conductor of Center Classical Orchestra (Coimbra – Portugal),
+  Associate Conductor of the Orquestra Clássica do Sul (Faro – Portugal),
+  Principal Conductor of the Orchestre Chambre de Carouge, in Switzerland and
+  principal conductor of the Circulo Portuense de Opera Choir (Porto-Portugal). 
 biography.cta: Download Biography
-biography.file: /pages/Biography ENG.docx
+biography.file: /pages/José Eduardo Gomes_Biography ENG.docx
 galery.title: Gallery
 contact.title: Contact
+galery.images: Images
+galery.videos: Videos
 ---
+
 
 
 

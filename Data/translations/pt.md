@@ -25,12 +25,13 @@ biography.excerpt: >
   Círculo Portuense de Opera, no Porto (2011 a 2017) e maestro principal da
   Orquestra Chambre de Carouge, na Suíça, (2008 a 2011).
 biography.cta: Download Biografia
-biography.file: /pages/José Eduardo Gomes_Biografia_2020.docx
+biography.file: /pages/Bio_PT.pdf
 galery.title: Galeria
 contact.title: Contacto
 galery.images: Imagens
 galery.videos: Videos
 ---
+
 
 
 

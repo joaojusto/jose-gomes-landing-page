@@ -25,12 +25,13 @@ biography.excerpt: >
   Principal Conductor of the Orchestre Chambre de Carouge, in Switzerland and
   principal conductor of the Circulo Portuense de Opera Choir (Porto-Portugal). 
 biography.cta: Download Biography
-biography.file: /pages/José Eduardo Gomes_Biography ENG.docx
+biography.file: /pages/Bio_ENG.pdf
 galery.title: Gallery
 contact.title: Contact
 galery.images: Images
 galery.videos: Videos
 ---
+
 
 
 

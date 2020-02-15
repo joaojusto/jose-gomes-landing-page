@@ -27,8 +27,18 @@ collections:
     fields:
       - { name: "url", label: "Link", widget: "string" }
       - { name: "title", label: "Título", widget: "string" }
-      - { name: "description", label: "Descrição", widget: "text", required: false }
-      - { name: "descriptionEn", label: "Descrição En", widget: "text", required: false }
+      - {
+          name: "description",
+          label: "Descrição",
+          widget: "text",
+          required: false,
+        }
+      - {
+          name: "descriptionEn",
+          label: "Descrição En",
+          widget: "text",
+          required: false,
+        }
       - { name: "dateTime", label: "Data", widget: "date" }
   - name: "languages"
     label: "Traduções"
@@ -36,7 +46,11 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: "title", label: "lingua (en ou pt ou fr etc...)", widget: "string" }
+      - {
+          name: "title",
+          label: "lingua (en ou pt ou fr etc...)",
+          widget: "string",
+        }
       - { name: "navbar.agenda", label: "link agenda", widget: "string" }
       - { name: "navbar.biography", label: "link biografia", widget: "string" }
       - { name: "navbar.news", label: "link noticias", widget: "string" }
@@ -48,8 +62,16 @@ collections:
       - { name: "agenda.title", label: "Título agenda", widget: "string" }
       - { name: "news.title", label: "Título noticias", widget: "string" }
       - { name: "biography.title", label: "Título biografia", widget: "string" }
-      - { name: "biography.excerpt", label: "Excerto biografia", widget: "text" }
+      - {
+          name: "biography.excerpt",
+          label: "Excerto biografia",
+          widget: "text",
+        }
       - { name: "biography.cta", label: "Botão download", widget: "string" }
-      - { name: "biography.file", label: "PDF biografia (Ficheiro deve-se chamar bio_pt.pdf ou bio_en.pdf)", widget: "file" }
+      - {
+          name: "biography.file",
+          label: "PDF, bio_pt.pdf/bio_en.pdf, não te esqueças, tudo em minúsculas :)",
+          widget: "file",
+        }
       - { name: "galery.title", label: "Título galeria", widget: "string" }
       - { name: "contact.title", label: "Título contacto", widget: "string" }

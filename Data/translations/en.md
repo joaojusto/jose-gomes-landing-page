@@ -13,31 +13,21 @@ news.title: News
 biography.title: Biography
 biography.excerpt: >
   José Eduardo Gomes recently won the 1st Prize in the European Union Conducting
-  Competition, and the Beethoven Prize in the same competition. 
+  Competition, and the Beethoven Prize in the same competition.
 
   He’s Principal Conductor of FEUP Orchestra (Porto – Portugal) and also
   Professor in the Porto Music University, as a Principal Conductor of the
-  School Orchestra. 
+  School Orchestra.
 
 
   He was Principal Conductor of Center Classical Orchestra (Coimbra – Portugal),
   Associate Conductor of the Orquestra Clássica do Sul (Faro – Portugal),
   Principal Conductor of the Orchestre Chambre de Carouge, in Switzerland and
-  principal conductor of the Circulo Portuense de Opera Choir (Porto-Portugal). 
+  principal conductor of the Circulo Portuense de Opera Choir (Porto-Portugal).
 biography.cta: Download Biography
-biography.file: /pages/Bio_ENG.pdf
+biography.file: /pages/bio_eng.pdf
 galery.title: Gallery
 contact.title: Contact
 galery.images: Images
 galery.videos: Videos
 ---
-
-
-
-
-
-
-
-
-
-

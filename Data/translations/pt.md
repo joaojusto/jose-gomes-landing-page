@@ -25,11 +25,12 @@ biography.excerpt: >
   Círculo Portuense de Opera, no Porto (2011 a 2017) e maestro principal da
   Orquestra Chambre de Carouge, na Suíça, (2008 a 2011).
 biography.cta: Download Biografia
-biography.file: /pages/sopros .pdf
+biography.file: /pages/bio_pt.pdf
 galery.title: Galeria
 contact.title: Contacto
 galery.images: Imagens
 galery.videos: Videos
 ---
+
 
 

@@ -22,7 +22,7 @@ const Biography = ({ translate, currentLanguage }) => (
             target="_blank"
             className="Biography-button"
           >
-            Download Biografia
+            {translate('biography.cta')}
           </a>
         </div>
       </div>

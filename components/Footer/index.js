@@ -3,6 +3,7 @@ import React from 'react';
 import './index.scss';
 import TwitterLogo from './twitter.svg';
 import FacebookLogo from './facebook.svg';
+import MusicTalent from './musictalent.png';
 
 const Footer = ({ translate }) => (
   <section className="Footer" id="Contactar">
@@ -14,6 +15,13 @@ const Footer = ({ translate }) => (
         <div>
           <p>José Eduardo Gomes</p>
           <p>gomes.jose83@gmail.com</p>
+        </div>
+        <div>
+          <a href="https://www.music-et-talent.com/">
+            <img src={MusicTalent} />
+          </a>
+          <p>Isabelle Chappellier</p>
+          <p>isabelle@music-et-talent.com</p>
         </div>
         <div className="Footer-socialLinks">
           <a href="https://www.facebook.com/José-Eduardo-Gomes-198462783943299">

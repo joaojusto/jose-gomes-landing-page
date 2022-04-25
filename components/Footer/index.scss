@@ -21,6 +21,8 @@
 
 .Footer-column {
   flex: 1;
+  justify-content: space-between;
+
 
   @include Breakpoint-mobileOnly {
     display: none;
@@ -28,6 +30,14 @@
 }
 
 .Footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div {
+    margin-bottom: 20px;
+  }
+
   @include Breakpoint-mobileOnly {
     display: flex;
     flex-direction: column-reverse;

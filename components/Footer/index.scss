@@ -38,6 +38,10 @@
     margin-bottom: 20px;
   }
 
+  div:first-child {
+    margin-bottom: 40px;
+  }
+
   @include Breakpoint-mobileOnly {
     display: flex;
     flex-direction: column-reverse;

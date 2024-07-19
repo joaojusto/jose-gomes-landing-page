@@ -16,17 +16,17 @@ biography.excerpt: >+
   Union Conducting Competition, tendo ganho igualmente o prémio Beethoven no
   mesmo concurso.
 
-  É maestro titular da Orquestra Clássica da FEUP e Professor na Escola Superior
-  de Música e das Artes do Espectáculo do Porto e na Escola Superior de Música
-  de Lisboa, onde trabalha com as várias Orquestras.
+  É Professor na Escola Superior de Música de Lisboa, onde trabalha com as
+  várias Orquestras.
 
 biography.cta: Download Biografia
-biography.file: /pages/Biografia_Jan_2022.docx
+biography.file: /pages/José Eduardo Gomes - biografia Fev.2024.pdf
 galery.title: Galeria
 contact.title: Contacto
 galery.images: Imagens
 galery.videos: Videos
 ---
+
 
 
 

@@ -1,26 +1,21 @@
-import React, { Component } from 'react';
-import moment from 'moment';
-import EventsContainer from '../../containers/Events';
-import _ from 'lodash';
+import React, { Component } from "react";
+import moment from "moment";
+import EventsContainer from "../../containers/Events";
+import _ from "lodash";
 
-import './index.scss';
+import "./index.scss";
 
-import Event from './Event';
-import Calendar from './Calendar';
+import Event from "./Event";
+import Calendar from "./Calendar";
 
-const sortEvents = events => {
+const sortEvents = (events) =>
+  _.chain(events).sortBy("dateTime").value().reverse();
+
+const findActiveEvent = (events) => {
   const now = moment();
 
-  return _.chain(events)
-    .sortBy('dateTime')
-    .value();
-};
-
-const findActiveEvent = events => {
-  const now = moment();
-
-  return _.find(sortEvents(events), event =>
-    now.isSameOrBefore(moment(event.dateTime), 'day'),
+  return _.find(sortEvents(events), (event) =>
+    now.isSameOrAfter(moment(event.dateTime), "day")
   );
 };
 
@@ -55,7 +50,8 @@ class Agenda extends Component {
       });
   };
 
-  onEventClick = selectedEvent => this.setState({ activeEvent: selectedEvent });
+  onEventClick = (selectedEvent) =>
+    this.setState({ activeEvent: selectedEvent });
 
   renderEvent() {
     const { activeEvent } = this.state;
@@ -73,7 +69,7 @@ class Agenda extends Component {
   render() {
     return (
       <section className="Agenda" id="Agenda">
-        <h1 className="Agenda-title">{this.props.translate('agenda.title')}</h1>
+        <h1 className="Agenda-title">{this.props.translate("agenda.title")}</h1>
         <div className="Agenda-content">
           <div className="Agenda-calendarContainer">
             <Calendar {...this.props} onEventClick={this.onEventClick} />

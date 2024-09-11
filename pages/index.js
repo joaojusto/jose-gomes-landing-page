@@ -58,7 +58,7 @@ class Index extends Component {
           <Quote {...props} />
           <News {...props} />
           <Biography {...props} />
-          <Galery {...props} />
+          {/* <Galery {...props} /> */}
           <Footer {...props} />
         </div>
       </div>

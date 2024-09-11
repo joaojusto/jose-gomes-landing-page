@@ -6,7 +6,7 @@ import './index.scss';
 
 const requireAll = requireContext => requireContext.keys().map(requireContext);
 
-const PHOTOS = requireAll(require.context('./photos/', false, /^\.\/.*\.jpg$/));
+const PHOTOS = requireAll(require.context('./photos/', false, /^\.\/.*\.jpeg$/));
 
 const VIDEOS = [
   { id: 'dVnHi-Y4XNI', title: 'José Eduardo Gomes - Maestro / Conductor' }

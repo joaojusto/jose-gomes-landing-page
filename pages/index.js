@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import Headroom from 'react-headroom';
-import Helmet from 'react-helmet';
+import React, { Component } from "react";
+import Headroom from "react-headroom";
+import Helmet from "react-helmet";
 
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Agenda from '../components/Agenda';
-import Quote from '../components/Quote';
-import News from '../components/News';
-import Biography from '../components/Biography';
-import Galery from '../components/Galery';
-import Footer from '../components/Footer';
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Agenda from "../components/Agenda";
+import Quote from "../components/Quote";
+import News from "../components/News";
+import Biography from "../components/Biography";
+import Galery from "../components/Galery";
+import Footer from "../components/Footer";
 
 const meta = [
-  { name: 'description', content: 'Maestro Jose Eduardo Gomes' },
-  { name: 'keywords', content: 'Maestro, Músico' }
+  { name: "description", content: "Maestro Jose Eduardo Gomes" },
+  { name: "keywords", content: "Maestro, Músico" },
 ];
 
-import { config } from '../config';
+import { config } from "../config";
 
-import '../components/reset.sass';
-import '../components/layout.scss';
-import '../components/headroom.scss';
+import "../components/reset.sass";
+import "../components/layout.scss";
+import "../components/headroom.scss";
 
-import Translate from '../containers/translations';
+import Translate from "../containers/translations";
 
 class Index extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ class Index extends Component {
           <Quote {...props} />
           <News {...props} />
           <Biography {...props} />
-          {/* <Galery {...props} /> */}
+          <Galery {...props} />
           <Footer {...props} />
         </div>
       </div>

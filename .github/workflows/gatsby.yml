@@ -1,7 +1,3 @@
-# Sample workflow for building and deploying a Gatsby site to GitHub Pages
-#
-# To get started with Gatsby see: https://www.gatsbyjs.com/docs/quick-start/
-#
 name: Deploy Gatsby site to Pages
 
 on:
@@ -31,7 +27,7 @@ defaults:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04  # Updated from ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -59,9 +55,6 @@ jobs:
         id: pages
         uses: actions/configure-pages@v2
         with:
-          # Automatically inject pathPrefix in your Gatsby configuration file.
-          #
-          # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: gatsby
       - name: Restore cache
         uses: actions/cache@v3

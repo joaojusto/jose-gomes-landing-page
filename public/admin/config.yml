@@ -1,0 +1,87 @@
+# Local backend for development with existing files
+backend:
+  name: git-gateway
+
+# Enable local backend
+local_backend: true
+
+# Production GitHub backend (uncomment when deploying)
+# backend:
+#   name: github  
+#   repo: joaojusto/jose-gomes-landing-page
+#   branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "events"
+    label: "Eventos"
+    folder: "src/content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "location", label: "Localização", widget: "string" }
+      - { name: "title", label: "Nome", widget: "string" }
+      - { name: "description", label: "Descrição", widget: "text" }
+      - { name: "descriptionEn", label: "Descrição En", widget: "text" }
+      - { name: "url", label: "Link", widget: "string", required: false }
+      - { name: "dateTime", label: "Data", widget: "datetime" }
+
+  - name: "news"
+    label: "Notícias"
+    folder: "src/content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "url", label: "Link", widget: "string" }
+      - { name: "title", label: "Título", widget: "string" }
+      - {
+          name: "description",
+          label: "Descrição",
+          widget: "text",
+          required: false,
+        }
+      - {
+          name: "descriptionEn",
+          label: "Descrição En",
+          widget: "text",
+          required: false,
+        }
+      - { name: "dateTime", label: "Data", widget: "date" }
+
+  - name: "translations"
+    label: "Traduções"
+    folder: "src/content/translations"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {
+          name: "title",
+          label: "lingua (en ou pt ou fr etc...)",
+          widget: "string",
+        }
+      - { name: "navbar.agenda", label: "link agenda", widget: "string" }
+      - { name: "navbar.biography", label: "link biografia", widget: "string" }
+      - { name: "navbar.news", label: "link noticias", widget: "string" }
+      - { name: "navbar.gallery", label: "link galeria", widget: "string" }
+      - { name: "navbar.contact", label: "link contacto", widget: "string" }
+      - { name: "hero.subtitle", label: "maestro", widget: "string" }
+      - { name: "hero.title", label: "titulo entrada", widget: "string" }
+      - { name: "quote", label: "Citaçao", widget: "string" }
+      - { name: "agenda.title", label: "Título agenda", widget: "string" }
+      - { name: "news.title", label: "Título noticias", widget: "string" }
+      - { name: "biography.title", label: "Título biografia", widget: "string" }
+      - {
+          name: "biography.excerpt",
+          label: "Excerto biografia",
+          widget: "text",
+        }
+      - { name: "biography.cta", label: "Botão download", widget: "string" }
+      - {
+          name: "biography.file",
+          label: "PDF, bio_pt.pdf/bio_en.pdf, não te esqueças, tudo em minúsculas :)",
+          widget: "file",
+        }
+      - { name: "galery.title", label: "Título galeria", widget: "string" }
+      - { name: "contact.title", label: "Título contacto", widget: "string" }

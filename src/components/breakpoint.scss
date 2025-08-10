@@ -1,0 +1,52 @@
+$Breakpoint-mobile: 599px;
+$Breakpoint-tablet: 1024px;
+$Breakpoint-small-desktop: 1100px;
+$Breakpoint-laptop: 1440px;
+
+@mixin Breakpoint-mobileOnly {
+  @media screen and (max-width: $Breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin Breakpoint-tabletOnly {
+  @media screen and (max-width: $Breakpoint-tablet) and (min-width: $Breakpoint-mobile){
+    @content;
+  }
+}
+
+@mixin Breakpoint-portraitTabletOnly {
+  @media screen and (max-width: $Breakpoint-tablet) and (min-width: $Breakpoint-mobile) and (orientation: portrait){
+    @content;
+  }
+}
+
+@mixin Breakpoint-smallDesktopOnly {
+  @media screen and (max-width: $Breakpoint-small-desktop) and (min-width: $Breakpoint-tablet){
+    @content;
+  }
+}
+
+@mixin Breakpoint-desktopOnly {
+  @media screen and (min-width: $Breakpoint-small-desktop) {
+    @content;
+  }
+}
+
+@mixin Breakpoint-laptopOnly {
+  @media screen and (max-width: $Breakpoint-laptop) and (min-width: $Breakpoint-small-desktop){
+    @content;
+  }
+}
+
+@mixin Breakpoint-laptopAndSmaller {
+  @media screen and (max-width: $Breakpoint-laptop) {
+    @content;
+  }
+}
+
+@mixin Breakpoint-tabletAndBigger {
+  @media screen and (min-width: $Breakpoint-mobile) {
+    @content;
+  }
+}

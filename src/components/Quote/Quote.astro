@@ -1,0 +1,23 @@
+---
+import { translate } from '../../utils/translate.js';
+
+export interface Props {
+  translations: Record<string, string>;
+}
+
+const { translations } = Astro.props;
+---
+
+<section class="Quote" data-translate="quote">"{translate(translations, 'quote')}"</section>
+
+<style>
+  .Quote {
+    padding: 100px 0;
+    background-color: #000724;
+    color: white;
+    font-family: 'Hammersmith One', serif;
+    font-size: 21px;
+    line-height: 100%;
+    text-align: center;
+  }
+</style>

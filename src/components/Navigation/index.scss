@@ -1,0 +1,34 @@
+@import "../breakpoint";
+
+.Navigation {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+.Navigation-next,
+.Navigation-previous {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  @include Breakpoint-mobileOnly {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.Navigation-previous {
+  left: 0;
+}
+
+.Navigation-next {
+  right: 0;
+}

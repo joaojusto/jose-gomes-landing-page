@@ -1,0 +1,154 @@
+@import '../color';
+@import '../typography';
+@import '../breakpoint';
+
+$Galery-thumbnail-size: 120px;
+$Galery-thumbnail-size-mobile: 70px;
+
+.Galery {
+  padding: 100px 100px 75px;
+
+  background-color: $Color-white;
+
+  @include Breakpoint-mobileOnly {
+    padding: 20px;
+  }
+}
+
+.Galery-title {
+  margin-bottom: 100px;
+
+  color: $Color-black;
+  font-family: $Typography-font-family-sans;
+  font-size: 30px;
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+
+  @include Breakpoint-mobileOnly {
+    margin-bottom: 55px;
+  }
+}
+
+.Galery-content {
+  display: flex;
+  flex-direction: row;
+
+  @include Breakpoint-mobileOnly {
+    flex-direction: column-reverse;
+  }
+}
+
+.Galery-section {
+  flex: 1;
+}
+
+.Galery-videoSection,
+.Galery-photoSection {
+  flex: 1;
+
+  @include Breakpoint-mobileOnly {
+    margin-bottom: 20px;
+  }
+}
+
+.Galery-videoSection {
+  min-height: 400px;
+}
+
+.Galery-navigation {
+  margin: 65px 0 100px;
+
+  @include Breakpoint-mobileOnly {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+}
+
+.Galery-link {
+  padding: 5px 50px;
+
+  border: 1px solid $Color-black;
+
+  background-color: $Color-white;
+
+  font-size: 16px;
+  color: $Color-black;
+  font-family: $Typography-font-family-sans;
+  text-decoration: none;
+  text-align: center;
+
+  cursor: pointer;
+
+  opacity: 0.4;
+
+  transition: all 0.3s linear;
+
+  &:hover {
+    background-color: $Color-black;
+
+    color: $Color-white;
+  }
+
+  &.is-selected {
+    opacity: 1;
+  }
+
+  @include Breakpoint-mobileOnly {
+    padding: 5px 25px;
+  }
+}
+
+.Galery-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+
+  max-width: (3 * $Galery-thumbnail-size) + 90px;
+
+  margin: -15px;
+  margin-bottom: 100px;
+
+  @include Breakpoint-mobileOnly {
+    margin: 0 auto;
+
+    max-width: 100%;
+  }
+}
+
+.Galery-thumbnail {
+  width: $Galery-thumbnail-size;
+  height: $Galery-thumbnail-size;
+
+  margin: 15px;
+
+  border-radius: 50%;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  border: 0px solid $Color-aqua;
+
+  &.is-selected {
+    border-width: 4px;
+  }
+
+  @include Breakpoint-mobileOnly {
+    width: $Galery-thumbnail-size-mobile;
+    height: $Galery-thumbnail-size-mobile;
+
+    margin: 15px;
+
+    transition: none;
+  }
+}
+
+.Galery-photoPreview {
+  width: 100%;
+
+  cursor: pointer;
+}

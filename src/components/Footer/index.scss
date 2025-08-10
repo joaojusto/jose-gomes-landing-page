@@ -1,0 +1,93 @@
+@import '../color';
+@import '../typography';
+@import '../breakpoint';
+
+.Footer {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 100px 100px 10px;
+
+  background-image: url('./background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include Breakpoint-mobileOnly {
+    padding: 20px;
+
+    background-image: url('./background-mobile.jpg');
+  }
+}
+
+.Footer-column {
+  flex: 1;
+  justify-content: space-between;
+
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  }
+}
+
+.Footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div {
+    margin-bottom: 20px;
+  }
+
+  div:first-child {
+    margin-bottom: 40px;
+  }
+
+  @include Breakpoint-mobileOnly {
+    display: flex;
+    flex-direction: column-reverse;
+
+    font-size: 14px;
+    line-height: 100%;
+  }
+}
+
+.Footer-largeColumn {
+  flex: 3;
+
+  color: $Color-white;
+  font-family: $Typography-font-family-serif;
+  font-size: 18px;
+  line-height: 2;
+  text-align: center;
+}
+
+.Footer-title {
+  color: $Color-white;
+  font-family: $Typography-font-family-sans;
+  font-size: 30px;
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+}
+
+.Footer-socialLinks {
+  margin: 40px 0;
+
+  @include Breakpoint-mobileOnly {
+    margin: 20px 0 50px;
+  }
+}
+
+.Footer-socialLink {
+  margin: 0 10px;
+}
+
+.Footer-copywrite {
+  font-size: 12px;
+
+  @include Breakpoint-mobileOnly {
+    margin-top: 50px;
+
+    line-height: 100%;
+  }
+}

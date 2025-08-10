@@ -1,0 +1,80 @@
+@import "../color";
+@import "../typography";
+@import "../breakpoint";
+
+$Hero-font-title-size: 36px;
+$Hero-font-title-size-mobile: 32px;
+$Hero-font-subtitle-size: 18px;
+$Hero-font-subtitle-size-mobile: 16px;
+
+.Hero {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+.Hero-mobileBackground {
+  display: none;
+
+  width: 100%;
+
+  @include Breakpoint-mobileOnly {
+    display: block;
+  }
+}
+
+.Hero-desktopBackground {
+  display: block;
+
+  width: 100%;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  }
+}
+
+.Hero-content {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding-left: 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include Breakpoint-mobileOnly {
+    padding-left: 20px;
+  }
+}
+
+.Hero-title {
+  color: $Color-white;
+  font-size: $Hero-font-title-size;
+  font-family: $Typography-font-family-sans;
+  text-transform: uppercase;
+
+  @include Breakpoint-mobileOnly {
+    font-size: $Hero-font-title-size-mobile;
+    word-spacing: 9999rem;
+  }
+}
+
+.Hero-subtitle {
+  color: $Color-white;
+  font-family: $Typography-font-family-sans;
+  font-size: $Hero-font-subtitle-size;
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+
+  @include Breakpoint-mobileOnly {
+    font-size: $Hero-font-subtitle-size-mobile;
+  }
+}

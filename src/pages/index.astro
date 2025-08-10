@@ -1,16 +1,112 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import * as chrono from 'chrono-node';
 
+// React components
+import NavbarWithLanguages from '../components/NavbarWithLanguages/index.jsx';
+import Agenda from '../components/Agenda/index.jsx';
+import News from '../components/News/index.jsx';
+import Galery from '../components/Galery/index.jsx';
+
+// Astro components
+import Hero from '../components/Hero/Hero.astro';
+import Quote from '../components/Quote/Quote.astro';
+import Biography from '../components/Biography/Biography.astro';
+import Footer from '../components/Footer/Footer.astro';
+
+// Global styles
+import '../components/reset.sass';
+import '../components/layout.scss';
+import '../components/headroom.scss';
+
+// Get content collections
+const events = await getCollection('events');
+const news = await getCollection('news');
+const translations = await getCollection('translations');
+
+// Helper function to parse dates using chrono-node like the original version
+const parseDate = (dateStr: string | Date): Date => {
+  try {
+    // If it's already a Date object, return it
+    if (dateStr instanceof Date) {
+      return dateStr;
+    }
+    
+    // If it's a string, parse it with chrono-node
+    if (typeof dateStr === 'string') {
+      const parsedDate = chrono.parseDate(dateStr);
+      if (!parsedDate) {
+        console.warn(`Invalid date: ${dateStr}`);
+        return new Date(); // Return current date as fallback
+      }
+      return parsedDate;
+    }
+    
+    // Fallback for other types
+    return new Date();
+  } catch (error) {
+    console.warn(`Error parsing date: ${dateStr}`, error);
+    return new Date(); // Return current date as fallback
+  }
+};
+
+// Sort events by date (using chrono-node like the original version)
+const sortedEvents = events
+  .map(event => ({
+    ...event,
+    data: {
+      ...event.data,
+      dateTime: parseDate(event.data.dateTime as string) // Parse dateTime using chrono-node
+    }
+  }))
+  .sort((a, b) => a.data.dateTime.getTime() - b.data.dateTime.getTime());
+
+// Get translations and create a proper translations object
+const ptTranslationsData = translations.find(t => t.data.title === 'pt')?.data || {};
+const enTranslationsData = translations.find(t => t.data.title === 'en')?.data || {};
+
+// Convert translations to flat objects for each language
+// Remove the 'title' field and use the rest as translation keys
+const { title: ptTitle, ...ptTranslations } = ptTranslationsData;
+const { title: enTitle, ...enTranslations } = enTranslationsData;
+
+// Create a translations map with both languages
+const allTranslations = {
+  pt: ptTranslations,
+  en: enTranslations
+};
+
+// Default translations (Portuguese)
+const translationsObject = ptTranslations;
+
+// Default language for static components
+const currentLanguage = 'pt';
+
+// Debug logs (remove in production)
+// console.log('Events:', sortedEvents.slice(0, 2));
+// console.log('News:', news.slice(0, 2));
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Jose Eduardo Gomes">
+  <div class="Layout">
+    <nav class="Layout-navbar">
+      <div class="headroom headroom--unfixed">
+        <NavbarWithLanguages 
+          client:load
+          allTranslations={allTranslations}
+          isScrolled={false}
+        />
+      </div>
+    </nav>
+    <div class="Layout-body">
+      <Hero translations={translationsObject} />
+      <Agenda client:load translations={translationsObject} events={sortedEvents} />
+      <Quote translations={translationsObject} />
+      <News client:load translations={translationsObject} news={news} currentLanguage={currentLanguage} />
+      <Biography translations={translationsObject} currentLanguage={currentLanguage} />
+      <Galery client:load translations={translationsObject} />
+      <Footer translations={translationsObject} />
+    </div>
+  </div>
+</Layout>

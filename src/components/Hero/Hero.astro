@@ -1,0 +1,90 @@
+---
+import { translate } from '../../utils/translate.js';
+
+export interface Props {
+  translations: Record<string, string>;
+}
+
+const { translations } = Astro.props;
+---
+
+<section class="Hero">
+  <div class="Hero-backgroundWrapper">
+    <img class="Hero-mobileBackground" src="/images/hero-mobile.jpg" />
+    <img class="Hero-desktopBackground" src="/images/hero-desktop.jpg" />
+  </div>
+  <div class="Hero-content">
+    <h2 class="Hero-subtitle" data-translate="hero.subtitle">{translate(translations, 'hero.subtitle')}</h2>
+    <h1 class="Hero-title" data-translate="hero.title">{translate(translations, 'hero.title')}</h1>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+  
+  .Hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .Hero-mobileBackground {
+    display: none;
+    width: 100%;
+  }
+
+  .Hero-desktopBackground {
+    display: block;
+    width: 100%;
+  }
+
+  .Hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .Hero-title {
+    color: white;
+    font-size: 36px;
+    font-family: 'Hammersmith One', sans-serif;
+    text-transform: uppercase;
+  }
+
+  .Hero-subtitle {
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 599px) {
+    .Hero-mobileBackground {
+      display: block;
+    }
+    
+    .Hero-desktopBackground {
+      display: none;
+    }
+    
+    .Hero-content {
+      padding-left: 20px;
+    }
+    
+    .Hero-title {
+      font-size: 32px;
+      word-spacing: 9999rem;
+    }
+    
+    .Hero-subtitle {
+      font-size: 16px;
+    }
+  }
+</style>

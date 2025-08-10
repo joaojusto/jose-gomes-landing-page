@@ -1,0 +1,134 @@
+---
+import { translate } from '../../utils/translate.js';
+
+export interface Props {
+  translations: Record<string, string>;
+}
+
+const { translations } = Astro.props;
+---
+
+<section class="Footer" id="Contactar">
+  <div class="Footer-column">
+    <h2 class="Footer-title" data-translate="contact.title">{translate(translations, 'contact.title')}</h2>
+  </div>
+  <div class="Footer-largeColumn">
+    <div class="Footer-content">
+      <div>
+        <p>José Eduardo Gomes</p>
+        <p>gomes.jose83@gmail.com</p>
+      </div>
+      <div>
+        <a href="https://www.music-et-talent.com/">
+          <img src="/images/musictalent.png" />
+        </a>
+        <p>Isabelle Chappellier</p>
+        <p>isabelle@music-et-talent.com</p>
+      </div>
+      <div class="Footer-socialLinks">
+        <a href="https://www.facebook.com/José-Eduardo-Gomes-198462783943299">
+          <img src="/images/facebook.svg" class="Footer-socialLink" />
+        </a>
+        <a href="https://twitter.com/jose_gomes83">
+          <img src="/images/twitter.svg" class="Footer-socialLink" />
+        </a>
+      </div>
+    </div>
+    <p class="Footer-copywrite">
+      Copyright © 2017 José Eduardo Gomes. All Rights Reserved. Website by
+      João Justo and João Andrade
+    </p>
+  </div>
+  <div class="Footer-column" />
+</section>
+
+<style>
+  .Footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 100px 100px 10px;
+    background-image: url('/images/footer-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .Footer-column {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .Footer-largeColumn {
+    flex: 3;
+    color: white;
+    font-family: 'Hammersmith One', serif;
+    font-size: 18px;
+    line-height: 2;
+    text-align: center;
+  }
+
+  .Footer-title {
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 30px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .Footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .Footer-content div {
+    margin-bottom: 20px;
+  }
+
+  .Footer-content div:first-child {
+    margin-bottom: 40px;
+  }
+
+  .Footer-content p {
+    margin: 0;
+  }
+
+  .Footer-socialLinks {
+    margin: 40px 0;
+  }
+
+  .Footer-socialLink {
+    margin: 0 10px;
+  }
+
+  .Footer-copywrite {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 599px) {
+    .Footer {
+      padding: 20px;
+      background-image: url('/images/footer-background-mobile.jpg');
+    }
+    
+    .Footer-column {
+      display: none;
+    }
+    
+    .Footer-content {
+      display: flex;
+      flex-direction: column-reverse;
+      font-size: 14px;
+      line-height: 100%;
+    }
+    
+    .Footer-socialLinks {
+      margin: 20px 0 50px;
+    }
+    
+    .Footer-copywrite {
+      margin-top: 50px;
+      line-height: 100%;
+    }
+  }
+</style>

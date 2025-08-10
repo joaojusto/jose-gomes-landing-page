@@ -6,9 +6,27 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
+    "test:visual:ui": "playwright test --ui"
   },
   "dependencies": {
-    "astro": "^5.12.9"
+    "@astrojs/react": "^4.3.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "astro": "^5.12.9",
+    "chrono-node": "^2.8.4",
+    "classnames": "^2.5.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "prop-types": "^15.8.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-youtube": "^10.1.0",
+    "sass": "^1.90.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
   }
 }

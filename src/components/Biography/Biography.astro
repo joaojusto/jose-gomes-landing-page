@@ -1,0 +1,158 @@
+---
+import { translate } from '../../utils/translate.js';
+
+export interface Props {
+  translations: Record<string, string>;
+  currentLanguage: string;
+}
+
+const { translations, currentLanguage } = Astro.props;
+---
+
+<section class="Biography" id="Biografia">
+  <h2 class="Biography-title" data-translate="biography.title">{translate(translations, 'biography.title')}</h2>
+  <div class="Biography-backgroundColumn">
+    <img class="Biography-background" src="/images/biography-background.jpg" />
+    <img class="Biography-backgroundMobile" src="/images/biography-background-mobile.jpg" />
+  </div>
+  <div class="Biography-contentColumn">
+    <div class="Biography-excerpt">
+      <p data-translate="biography.excerpt">{translate(translations, 'biography.excerpt')}</p>
+      <div class="Biography-actions">
+        <a
+          href={`/bio_${currentLanguage}.pdf`}
+          target="_blank"
+          class="Biography-button"
+        >
+          <span data-translate="biography.cta">{translate(translations, 'biography.cta')}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .Biography {
+    position: relative;
+    display: flex;
+  }
+
+  .Biography-title {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    font-size: 38px;
+    font-family: 'Hammersmith One', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+    z-index: 10;
+  }
+
+  .Biography-contentColumn {
+    position: relative;
+    flex: 1;
+    width: 100%;
+  }
+
+  .Biography-backgroundColumn {
+    flex: 1;
+    width: 100%;
+  }
+
+  .Biography-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .Biography-backgroundMobile {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .Biography-excerpt {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 0 100px;
+    font-size: 21px;
+    font-family: 'Hammersmith One', serif;
+    color: #000000;
+    line-height: 120%;
+  }
+
+  .Biography-excerpt p {
+    margin: 0 0 50px 0;
+  }
+
+  .Biography-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  .Biography-button {
+    padding: 5px 20px;
+    border: 1px solid #000000;
+    background-color: white;
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Hammersmith One', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s linear;
+  }
+
+  .Biography-button:hover {
+    background-color: #000000;
+    color: white;
+  }
+
+  @media screen and (max-width: 599px) {
+    .Biography {
+      flex-direction: column;
+    }
+    
+    .Biography-title {
+      top: 20px;
+      left: 20px;
+      font-size: 22px;
+    }
+    
+    .Biography-contentColumn {
+      padding-bottom: 60px;
+      border-bottom: 1px solid #000000;
+    }
+    
+    .Biography-background {
+      display: none;
+    }
+    
+    .Biography-backgroundMobile {
+      display: block;
+    }
+    
+    .Biography-excerpt {
+      position: static;
+      padding: 20px;
+      font-size: 16px;
+      transform: none;
+    }
+    
+    .Biography-actions {
+      flex-direction: column;
+      margin-top: 100px;
+    }
+    
+    .Biography-button:last-child {
+      margin-top: 20px;
+    }
+  }
+</style>

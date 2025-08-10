@@ -1,0 +1,59 @@
+$Burger-width: 30px;
+$Burger-bar-count: 3;
+$Burger-height: 20px;
+$Burger-bar-color: #fff;
+$Burger-bar-height: 3px;
+
+$Burger-bottom-bar-position: $Burger-height - $Burger-bar-height;
+$Burger-midle-bar-position: ($Burger-height / 2) - ($Burger-bar-height / 2);
+
+.Burger {
+  position: relative;
+
+  width: $Burger-width;
+  height: $Burger-height;
+
+  z-index: 3;
+}
+
+.Burger-bar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: $Burger-bar-height;
+
+  background-color: $Burger-bar-color;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.Burger {
+  .Burger-bar:first-child {
+    transform: translateY(0%) rotate(0deg);
+  }
+
+  .Burger-bar:nth-child(even) {
+    transform: translateY($Burger-midle-bar-position) rotate(0deg);
+  }
+
+  .Burger-bar:last-child {
+    transform: translateY($Burger-bottom-bar-position) rotate(0deg);
+  }
+}
+
+.Burger.is-open {
+  .Burger-bar:nth-child(even) {
+    transform: translateY($Burger-midle-bar-position) rotate(-45deg);
+  }
+
+  .Burger-bar:first-child {
+    transform: translateY($Burger-midle-bar-position) rotate(-45deg);
+  }
+
+  .Burger-bar:last-child {
+    transform: translateY($Burger-midle-bar-position) rotate(45deg);
+  }
+}

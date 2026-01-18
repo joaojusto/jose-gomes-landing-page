@@ -6,7 +6,7 @@ import * as chrono from 'chrono-node';
 // React components
 import NavbarWithLanguages from '../components/NavbarWithLanguages/index.jsx';
 import Agenda from '../components/Agenda/index.jsx';
-import News from '../components/News/index.jsx';
+import News from '../components/News/News.astro';
 import Galery from '../components/Galery/index.jsx';
 
 // Astro components
@@ -16,9 +16,9 @@ import Biography from '../components/Biography/Biography.astro';
 import Footer from '../components/Footer/Footer.astro';
 
 // Global styles
-import '../components/reset.sass';
-import '../components/layout.scss';
-import '../components/headroom.scss';
+import '../components/reset.css';
+import '../components/layout.css';
+import '../components/headroom.css';
 
 // Get content collections
 const events = await getCollection('events');
@@ -80,8 +80,11 @@ const allTranslations = {
 // Default translations (Portuguese)
 const translationsObject = ptTranslations;
 
-// Default language for static components
+// Default language for static components  
 const currentLanguage = 'pt';
+
+// Initialize stores with server-side data
+import { generateInitScript } from '../stores/astro.ts';
 
 // Debug logs (remove in production)
 // console.log('Events:', sortedEvents.slice(0, 2));
@@ -103,10 +106,110 @@ const currentLanguage = 'pt';
       <Hero translations={translationsObject} />
       <Agenda client:load translations={translationsObject} events={sortedEvents} />
       <Quote translations={translationsObject} />
-      <News client:load translations={translationsObject} news={news} currentLanguage={currentLanguage} />
+      <News translations={translationsObject} news={news} currentLanguage={currentLanguage} />
       <Biography translations={translationsObject} currentLanguage={currentLanguage} />
       <Galery client:load translations={translationsObject} />
       <Footer translations={translationsObject} />
     </div>
   </div>
 </Layout>
+
+<script is:inline define:vars={{ 
+  initialData: {
+    language: currentLanguage,
+    translations: allTranslations,
+    breakpoint: 'desktop' // Will be updated by client-side detection
+  }
+}}>
+  // Initialize nanostores with server-side data
+  import('/src/stores/index.ts').then(({ initializeStores }) => {
+    initializeStores(initialData);
+  });
+
+  // Headroom scroll behavior
+  class Headroom {
+    constructor(element) {
+      this.element = element;
+      this.lastKnownScrollY = 0;
+      this.currentScrollY = 0;
+      this.direction = 'down';
+      this.tolerance = 5;
+      this.offset = 50;
+      
+      this.init();
+    }
+    
+    init() {
+      this.bindEvents();
+      this.update();
+    }
+    
+    bindEvents() {
+      window.addEventListener('scroll', this.onScroll.bind(this));
+    }
+    
+    onScroll() {
+      this.currentScrollY = window.pageYOffset;
+      this.requestAnimationFrame(this.update.bind(this));
+    }
+    
+    requestAnimationFrame(callback) {
+      return window.requestAnimationFrame(callback);
+    }
+    
+    update() {
+      const scrolled = this.currentScrollY > this.offset;
+      const direction = this.currentScrollY > this.lastKnownScrollY ? 'down' : 'up';
+      const toleranceExceeded = Math.abs(this.currentScrollY - this.lastKnownScrollY) >= this.tolerance;
+      
+      if (this.currentScrollY <= this.offset) {
+        // At top of page - show navbar in normal flow
+        this.removeClass('headroom--pinned');
+        this.removeClass('headroom--unpinned');
+        this.removeClass('headroom--scrolled');
+        this.addClass('headroom--unfixed');
+      } else if (toleranceExceeded && direction !== this.direction) {
+        // Direction changed and tolerance exceeded
+        this.direction = direction;
+        this.removeClass('headroom--unfixed');
+        this.addClass('headroom--scrolled');
+        
+        if (direction === 'down') {
+          this.unpin();
+        } else {
+          this.pin();
+        }
+      }
+      
+      this.lastKnownScrollY = this.currentScrollY;
+    }
+    
+    pin() {
+      this.removeClass('headroom--unpinned');
+      this.addClass('headroom--pinned');
+    }
+    
+    unpin() {
+      this.removeClass('headroom--pinned');
+      this.addClass('headroom--unpinned');
+    }
+    
+    addClass(className) {
+      if (!this.element.classList.contains(className)) {
+        this.element.classList.add(className);
+      }
+    }
+    
+    removeClass(className) {
+      this.element.classList.remove(className);
+    }
+  }
+  
+  // Initialize headroom when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const headroomElement = document.querySelector('.headroom');
+    if (headroomElement) {
+      new Headroom(headroomElement);
+    }
+  });
+</script>

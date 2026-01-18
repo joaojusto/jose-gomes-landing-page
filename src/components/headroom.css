@@ -1,0 +1,43 @@
+@import './breakpoint.css';
+
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+}
+
+.headroom--unfixed {
+  position: relative;
+  transform: translateY(0);
+}
+
+/* Uncommented mobile-only behavior for future use
+@media screen and (max-width: 599px) {
+  .headroom--unfixed {
+    position: fixed;
+  }
+}
+*/
+
+.headroom--scrolled {
+  transition: transform 200ms ease-in-out;
+}
+
+.headroom--unpinned {
+  position: fixed;
+  transform: translateY(-100%);
+}
+
+/* Uncommented mobile-only behavior for future use  
+@media screen and (max-width: 599px) {
+  .headroom--unpinned {
+    transform: translateY(0%);
+  }
+}
+*/
+
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
+}

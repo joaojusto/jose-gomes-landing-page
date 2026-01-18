@@ -1,0 +1,58 @@
+---
+interface Props {
+  context?: string; // 'news', 'agenda', etc. to identify which component is using it
+}
+
+const { context = 'default' } = Astro.props;
+---
+
+<div class="Navigation" data-context={context}>
+  <img
+    class="Navigation-previous"
+    src="/images/previous.svg"
+    id={`nav-previous-${context}`}
+    role="button"
+    tabindex="0"
+    aria-label="Previous"
+  />
+  <img 
+    class="Navigation-next" 
+    src="/images/next.svg" 
+    id={`nav-next-${context}`}
+    role="button"
+    tabindex="0"
+    aria-label="Next"
+  />
+</div>
+
+<style>
+  @import './index.scss';
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navigations = document.querySelectorAll('.Navigation');
+    
+    navigations.forEach(nav => {
+      const context = nav.dataset.context || 'default';
+      const previousBtn = nav.querySelector('.Navigation-previous');
+      const nextBtn = nav.querySelector('.Navigation-next');
+      
+      if (previousBtn) {
+        previousBtn.addEventListener('click', () => {
+          window.dispatchEvent(new CustomEvent(`${context}-navigation`, {
+            detail: { direction: 'previous' }
+          }));
+        });
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          window.dispatchEvent(new CustomEvent(`${context}-navigation`, {
+            detail: { direction: 'next' }
+          }));
+        });
+      }
+    });
+  });
+</script>

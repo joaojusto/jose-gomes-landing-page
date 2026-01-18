@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './index.scss';
+import './index.css';
 
 const Burger = ({ isOpen, onClick }) => {
   const className = classNames({

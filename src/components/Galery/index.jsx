@@ -29,8 +29,8 @@ class Galery extends Component {
     this.state = {
       selectedTab: TABS.images,
       translations: props.translations || {},
-      selectedVideo: _.sample(VIDEOS),
-      selectedPhoto: _.sample(PHOTOS)
+      selectedVideo: VIDEOS[0],
+      selectedPhoto: PHOTOS[PHOTOS.length - 1]
     };
   }
 

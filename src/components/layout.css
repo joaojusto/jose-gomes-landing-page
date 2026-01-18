@@ -1,0 +1,17 @@
+@import "./breakpoint.css";
+
+.Layout {
+  --layout-navbar-height: 150px;
+  
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.Layout-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

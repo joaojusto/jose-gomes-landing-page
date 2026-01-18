@@ -1,0 +1,32 @@
+---
+interface Props {
+  isOpen: boolean;
+  onClick?: () => void;
+}
+
+const { isOpen } = Astro.props;
+
+const className = `Burger${isOpen ? ' is-open' : ''}`;
+---
+
+<div class={className} id="burger-menu">
+  <div class="Burger-bar"></div>
+  <div class="Burger-bar"></div>
+  <div class="Burger-bar"></div>
+</div>
+
+<style>
+  @import './index.css';
+</style>
+
+<script>
+  const burger = document.getElementById('burger-menu');
+  if (burger) {
+    burger.addEventListener('click', () => {
+      // Dispatch custom event for parent components to handle
+      burger.dispatchEvent(new CustomEvent('burger-click', { 
+        bubbles: true 
+      }));
+    });
+  }
+</script>

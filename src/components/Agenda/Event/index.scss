@@ -82,6 +82,7 @@
   margin-bottom: 25px;
 
   font-size: 21px;
+  line-height: 100%;
 
   @include Breakpoint-mobileOnly {
     margin-bottom: 5px;
@@ -94,6 +95,7 @@
   margin-bottom: 65px;
 
   font-size: 16px;
+  line-height: 100%;
 
   @include Breakpoint-mobileOnly {
     display: none;
@@ -103,11 +105,17 @@
 .Event-locationMobile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 
   margin-top: 20px;
 
   font-size: 16px;
+
+  img {
+    max-width: 40px;
+    max-height: 40px;
+    margin-bottom: 10px;
+  }
 }
 
 .Event-name {
@@ -115,6 +123,7 @@
   margin-bottom: 50px;
 
   font-size: 37px;
+  line-height: 100%;
   text-align: center;
 
   @include Breakpoint-mobileOnly {
@@ -128,7 +137,7 @@
 .Event-description {
   font-size: 16px;
   font-family: $Typography-font-family-serif;
-  line-height: 120%;
+  line-height: 100%;
 
   @include Breakpoint-mobileOnly {
     display: none;

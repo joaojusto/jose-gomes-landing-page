@@ -1,0 +1,48 @@
+.Burger {
+  --burger-width: 30px;
+  --burger-bar-count: 3;
+  --burger-height: 20px;
+  --burger-bar-color: #fff;
+  --burger-bar-height: 3px;
+  --burger-bottom-bar-position: calc(var(--burger-height) - var(--burger-bar-height));
+  --burger-middle-bar-position: calc((var(--burger-height) / 2) - (var(--burger-bar-height) / 2));
+
+  position: relative;
+  width: var(--burger-width);
+  height: var(--burger-height);
+  z-index: 3;
+}
+
+.Burger-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--burger-bar-height);
+  background-color: var(--burger-bar-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.Burger .Burger-bar:first-child {
+  transform: translateY(0%) rotate(0deg);
+}
+
+.Burger .Burger-bar:nth-child(even) {
+  transform: translateY(var(--burger-middle-bar-position)) rotate(0deg);
+}
+
+.Burger .Burger-bar:last-child {
+  transform: translateY(var(--burger-bottom-bar-position)) rotate(0deg);
+}
+
+.Burger.is-open .Burger-bar:nth-child(even) {
+  transform: translateY(var(--burger-middle-bar-position)) rotate(-45deg);
+}
+
+.Burger.is-open .Burger-bar:first-child {
+  transform: translateY(var(--burger-middle-bar-position)) rotate(-45deg);
+}
+
+.Burger.is-open .Burger-bar:last-child {
+  transform: translateY(var(--burger-middle-bar-position)) rotate(45deg);
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import '../Navbar/index.scss';
+import './navbar.scss';
 
 import Burger from '../Burger/index.jsx';
 import { translate } from '../../utils/translate';
@@ -17,11 +17,27 @@ const LINKS = [
 class NavbarWithLanguages extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       mobileMenuOpen: false,
-      currentLanguage: 'pt'
+      currentLanguage: 'pt',
+      isScrolled: false
     };
   }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const scrolled = window.pageYOffset > 50;
+    if (scrolled !== this.state.isScrolled) {
+      this.setState({ isScrolled: scrolled });
+    }
+  };
 
   onMobileMenuClick = () =>
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
@@ -97,7 +113,7 @@ class NavbarWithLanguages extends Component {
   render() {
     const navbarClass = classNames({
       Navbar: true,
-      'is-scrolled': this.props.isScrolled,
+      'is-scrolled': this.state.isScrolled,
       'is-overlay-open': this.state.mobileMenuOpen
     });
 

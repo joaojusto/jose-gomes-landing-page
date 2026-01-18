@@ -1,0 +1,182 @@
+@import '../color';
+@import '../typography';
+@import '../breakpoint';
+
+$Navbar-link-font-size: 18px;
+$Navbar-link-spacing-base: 56px;
+$Navbar-button-padding-small: 5px;
+$Navbar-button-padding-base: 10px;
+
+.Navbar {
+  position: relative;
+
+  padding: $Navbar-link-spacing-base;
+
+  transition: background-color 0.3s ease-in;
+
+  @include Breakpoint-mobileOnly {
+    padding: 20px;
+  }
+}
+
+.Navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  }
+}
+
+.Navbar-link,
+.Navbar-button {
+  display: inline-block;
+
+  color: $Color-white;
+  font-size: $Navbar-link-font-size;
+  font-family: $Typography-font-family-sans;
+
+  &:not(:last-child) {
+    margin-right: $Navbar-link-spacing-base;
+  }
+
+  @include Breakpoint-mobileOnly {
+    display: block;
+
+    margin-right: 0;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+}
+
+.Navbar-button {
+  padding: $Navbar-button-padding-small $Navbar-button-padding-base;
+
+  border: 2px solid $Color-white;
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $Color-white;
+
+    color: $Color-black;
+  }
+
+  @include Breakpoint-mobileOnly {
+    display: none;
+  }
+}
+
+.Navbar-mobileButton {
+  display: none;
+
+  @include Breakpoint-mobileOnly {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.Navbar-overlay {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  transform: translateX(100%);
+  visibility: hidden;
+
+  width: 140px;
+  height: 100vh;
+
+  padding: 100px 20px 20px;
+
+  background-color: rgba(#945252, 0.65);
+
+  text-align: right;
+
+  transition: transform 0.3s linear, visibility 0.3s linear;
+}
+
+.Navbar.is-overlay-open {
+  .Navbar-overlay {
+    transform: translateX(0);
+    visibility: visible;
+  }
+}
+
+.Navbar.is-scrolled.is-overlay-open {
+  .Navbar-background {
+    opacity: 0;
+  }
+}
+
+.Navbar-contentWrapper {
+  z-index: 2;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Navbar-background {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #000724;
+
+  opacity: 0;
+
+  z-index: -1;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.Navbar.is-scrolled {
+  .Navbar-background {
+    opacity: 1;
+  }
+}
+
+.Navbar-languages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-left: 40px;
+
+  @include Breakpoint-mobileOnly {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.Navbar-languageButton {
+  padding: 2.5px 0;
+
+  color: #979797;
+  text-align: center;
+  font-family: $Typography-font-family-sans;
+  font-size: 16px;
+
+  cursor: pointer;
+
+  @include Breakpoint-mobileOnly {
+    margin: 0 20px;
+  }
+}
+
+.Navbar-languageButton.is-active {
+  color: $Color-white;
+}

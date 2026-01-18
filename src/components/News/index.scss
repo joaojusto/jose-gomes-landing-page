@@ -4,6 +4,7 @@
 
 .News {
   position: relative;
+  min-height: 500px;
 
   display: flex;
 
@@ -36,6 +37,10 @@
 .News-pagination {
   position: absolute;
 
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
   bottom: 65px;
   left: 50%;
 
@@ -43,16 +48,13 @@
 
   @include Breakpoint-mobileOnly {
     bottom: 20px;
+    gap: 8px;
   }
 }
 
 .News-paginationItem {
-  display: inline-block;
-
-  width: 15px;
-  height: 15px;
-
-  margin-right: 40px;
+  width: 10px;
+  height: 10px;
 
   border-radius: 50%;
 
@@ -62,8 +64,9 @@
 
   cursor: pointer;
 
-  &:last-child {
-    margin-right: 0;
+  @include Breakpoint-mobileOnly {
+    width: 8px;
+    height: 8px;
   }
 }
 
@@ -102,6 +105,7 @@
 .News-background {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 
   @include Breakpoint-mobileOnly {
     display: none;
@@ -113,6 +117,7 @@
 
   width: 100%;
   height: 100%;
+  object-fit: cover;
 
   @include Breakpoint-mobileOnly {
     display: block;
@@ -201,20 +206,22 @@
 }
 
 .News-itemLink {
-  position: absolute;
   display: block;
 
-  left: 51%;
-  bottom: 65px * 2;
-
-  transform: translateX(-50%);
-
-  width: 30px;
+  width: 20px;
   height: 20px;
 
-  margin: 0 auto;
+  margin: 20px auto 0;
 
   cursor: pointer;
 
-  z-index: 9999;
+  img {
+    width: 100%;
+    height: 100%;
+    filter: invert(1);
+
+    @include Breakpoint-mobileOnly {
+      filter: none;
+    }
+  }
 }

@@ -1,0 +1,172 @@
+---
+import { translate } from '../../utils/translate';
+import Navigation from '../Navigation/Navigation.astro';
+
+interface Props {
+  translations: any;
+  news: any[];
+  currentLanguage: string;
+}
+
+const { translations, news, currentLanguage } = Astro.props;
+---
+
+<section class="News" id="Noticias" data-news={JSON.stringify(news)}>
+  <div class="News-contentColumn">
+    <h2 class="News-title">{translate(translations, 'news.title')}</h2>
+    <div id="news-item" class="News-item">
+      {news.length > 0 && (
+        <>
+          <h3 class="News-itemTitle">{news[0].data.title}</h3>
+          {(currentLanguage === 'en' ? news[0].data.descriptionEn || news[0].data.description : news[0].data.description) && (
+            <p class="News-itemDescription">{currentLanguage === 'en' ? news[0].data.descriptionEn || news[0].data.description : news[0].data.description}</p>
+          )}
+          <span class="News-itemDate">{new Date(news[0].data.dateTime).toLocaleDateString('pt-PT')}</span>
+          {news[0].data.url && (
+            <a class="News-itemLink" href={news[0].data.url} target="_blank">
+              <img src="/images/link.svg" alt="External link" />
+            </a>
+          )}
+        </>
+      )}
+    </div>
+    <div class="News-navigation">
+      <Navigation context="news" />
+    </div>
+    <div class="News-pagination" id="news-pagination">
+      {news && news.length > 0 && news.map((_, index) => (
+        <div class={`News-paginationItem ${index === 0 ? 'is-active' : ''}`} data-index={index} key={index}></div>
+      ))}
+    </div>
+  </div>
+  <div class="News-backgroundColumn">
+    <img class="News-background" src="/images/news-background.jpg" />
+    <img class="News-backgroundMobile" src="/images/news-background-mobile.jpg" />
+  </div>
+</section>
+
+<script is:inline>
+  // Initialize news functionality immediately
+  const initializeNews = () => {
+    const newsSection = document.querySelector('.News');
+    if (!newsSection) {
+      console.warn('News section not found');
+      return;
+    }
+    
+    let news = [];
+    let currentIndex = 0;
+    
+    // Get news data from attributes  
+    try {
+      news = JSON.parse(newsSection.dataset.news || '[]');
+    } catch (e) {
+      console.warn('Failed to parse news data:', e);
+      return;
+    }
+    
+    if (news.length === 0) {
+      console.warn('No news data available');
+      return;
+    }
+    
+    console.log('News initialized with', news.length, 'items');
+    
+    // Format date helper
+    const formatDate = (dateString) => {
+      if (!dateString) return 'No date';
+      try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('pt-PT');
+      } catch (e) {
+        return dateString;
+      }
+    };
+    
+    // Render current news item
+    const renderNews = () => {
+      const newsItem = document.getElementById('news-item');
+      if (!newsItem || !news[currentIndex]) return;
+      
+      const currentNews = news[currentIndex];
+      const newsData = currentNews.data || currentNews;
+      
+      const title = newsData.title || '';
+      const description = newsData.description || '';
+      const dateString = formatDate(newsData.dateTime);
+      const url = newsData.url;
+
+      newsItem.innerHTML = `
+        <h3 class="News-itemTitle">${title}</h3>
+        ${description ? `<p class="News-itemDescription">${description}</p>` : ''}
+        <span class="News-itemDate">${dateString}</span>
+        ${url ? `<a class="News-itemLink" href="${url}" target="_blank">
+          <img src="/images/link.svg" alt="External link" />
+        </a>` : ''}
+      `;
+    };
+    
+    // Render pagination dots
+    const renderPagination = () => {
+      const pagination = document.getElementById('news-pagination');
+      if (!pagination) return;
+      
+      console.log('Rendering pagination with', news.length, 'items, current:', currentIndex);
+      
+      pagination.innerHTML = news.map((_, index) => {
+        const isActive = index === currentIndex;
+        return `<div class="News-paginationItem ${isActive ? 'is-active' : ''}" data-index="${index}"></div>`;
+      }).join('');
+      
+      // Add click listeners to dots
+      pagination.querySelectorAll('.News-paginationItem').forEach((item) => {
+        item.addEventListener('click', () => {
+          currentIndex = parseInt(item.dataset.index);
+          renderNews();
+          renderPagination();
+        });
+      });
+    };
+    
+    // Navigation functions
+    const nextNews = () => {
+      if (currentIndex < news.length - 1) {
+      currentIndex++;
+        renderNews();
+        renderPagination();
+      }
+    };
+    
+    const previousNews = () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderNews();
+        renderPagination();
+      }
+    };
+    
+    // Listen for navigation events
+    window.addEventListener('news-navigation', (event) => {
+      if (event.detail.direction === 'next') {
+        nextNews();
+      } else if (event.detail.direction === 'previous') {
+        previousNews();
+      }
+    });
+    
+    // Initial render
+    renderNews();
+    renderPagination();
+  };
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeNews);
+  } else {
+    initializeNews();
+  }
+</script>
+
+<style is:global lang="scss">
+@import './index.scss';
+</style>

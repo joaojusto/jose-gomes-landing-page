@@ -1,0 +1,42 @@
+:root {
+  --breakpoint-mobile: 599px;
+  --breakpoint-tablet: 1024px;
+  --breakpoint-small-desktop: 1100px;
+  --breakpoint-laptop: 1440px;
+}
+
+/* Modern CSS media query mixins using @container or direct queries */
+/* These classes can be used as container query contexts */
+.mobile-only {
+  container-type: inline-size;
+}
+
+.tablet-only {
+  container-type: inline-size;  
+}
+
+.desktop-only {
+  container-type: inline-size;
+}
+
+/* Media queries for components - use these in individual component CSS */
+@media screen and (max-width: 599px) {
+  .mobile-only-content { display: block; }
+  .tablet-and-up-content { display: none; }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .tablet-only-content { display: block; }
+  .mobile-only-content { display: none; }
+  .desktop-only-content { display: none; }
+}
+
+@media screen and (min-width: 600px) {
+  .tablet-and-up-content { display: block; }
+  .mobile-only-content { display: none; }
+}
+
+@media screen and (min-width: 1100px) {
+  .desktop-only-content { display: block; }
+  .tablet-only-content { display: none; }
+}

@@ -1,15 +1,7 @@
-# Local backend for development with existing files
 backend:
-  name: git-gateway
-
-# Enable local backend
-local_backend: true
-
-# Production GitHub backend (uncomment when deploying)
-# backend:
-#   name: github
-#   repo: joaojusto/jose-gomes-landing-page
-#   branch: main
+  name: github
+  repo: joaojusto/jose-gomes-landing-page
+  branch: main
 
 media_folder: "public/images"
 public_folder: "/images"

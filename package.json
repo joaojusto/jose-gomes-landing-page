@@ -14,7 +14,7 @@
     "@nanostores/react": "^1.0.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
-    "astro": "^5.16.11",
+    "astro": "^5.18.1",
     "chrono-node": "^2.8.4",
     "classnames": "^2.5.1",
     "lodash": "^4.17.21",
